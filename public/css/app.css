@@ -1,0 +1,325 @@
+@font-face {
+    font-family: gotham;
+    src: url('../fonts/Gotham Rounded Light.otf')
+}
+
+@font-face {
+    font-family: gotham-medium;
+    src: url('../fonts/Gotham Rounded Medium.otf')
+}
+
+body {
+    font-family: gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important
+}
+
+h1, h2, h3 {
+    font-family: gotham-medium, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+p {
+    font-size: 1.5rem
+}
+
+.background {
+    background: #f15f4c;
+    background-size: cover;
+    height: 100vh;
+    position: relative
+}
+
+.site-navbar .navbar-brand a {
+    font-family: 'Open Sans', Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+.site-main {
+    padding-top: 70px
+}
+
+.site-footer {
+    padding-top: 0
+}
+
+.site-footer .copyright {
+    border-top: 0
+}
+
+.ui-slider .ui-slider-range {
+    background-image: linear-gradient(to bottom, #e74430, #f15f4c)
+}
+
+select {
+    margin-bottom: 10px
+}
+
+.m-b-40 {
+    margin-bottom: 40px
+}
+
+input[type=checkbox].css-checkbox {
+    position: absolute;
+    z-index: -1000;
+    left: -1000px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+    padding-left: 24px;
+    height: 17px;
+    display: inline-block;
+    line-height: 17px;
+    background: no-repeat;
+    font-size: 17px;
+    vertical-align: middle;
+    cursor: pointer
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+    background-position: 0 -17px
+}
+
+label.css-label {
+    background-image: url(http://www.csscheckbox.com/checkboxes/u/csscheckbox_6de93f3dd0a8cd78b0f2526c1bc6e0f7.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.amount {
+    padding-top: 20px;
+    color: #333;
+    font-size: 1.1em
+}
+
+.p-b-10 {
+    padding-bottom: 8px
+}
+
+div.services {
+    padding: 20px
+}
+
+div.services img {
+    max-width: 75%;
+    max-height: 75%
+}
+
+p.services {
+    font-family: gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    line-height: 160%;
+    font-weight: 100;
+    text-align: justify
+}
+
+h2, h3 {
+    font-family: 'Open Sans', Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
+.elegir-contacto, .modal, .overlay-linkedin {
+    text-align: center
+}
+
+div.services-row {
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #fff
+}
+
+.facu, .lean, .martin, .overlay-linkedin, .pablo {
+    margin: 0 auto;
+    width: 120px;
+    height: 120px
+}
+
+.facu, .lean, .linkedin-logo, .martin, .overlay-linkedin, .pablo {
+    border-radius: 6px
+}
+
+.copyright p {
+    font-size: 16px;
+    padding-right: 15px;
+    color: #fff
+}
+
+.icon-wrap {
+    padding: 14px;
+    opacity: .8
+}
+
+.form-control:focus {
+    border-color: #f15f4c
+}
+
+h1 {
+    font-size: 32px
+}
+
+h2 {
+    font-size: 22px
+}
+
+h3 {
+    font-size: 1.5rem
+}
+
+.facu {
+    background-image: url("../images/perfil-facu.jpg");
+    background-size: cover;
+}
+
+.martin {
+    background-image: url("../images/perfil-martin.jpg");
+    background-size: cover;
+}
+
+.pablo {
+    background-image: url("../images/perfil-pablo.jpg");
+    background-size: cover;
+}
+
+.lean {
+    background-image: url("../images/perfil-lean.jpg");
+    background-size: cover;
+}
+
+.overlay-linkedin {
+    background: rgba(0, 0, 0, .75);
+    opacity: 0;
+    -webkit-transition: opacity .25s ease;
+    -moz-transition: opacity .25s ease;
+    display: table-cell;
+    vertical-align: middle
+}
+
+.facu:hover .overlay-linkedin, .lean:hover .overlay-linkedin, .martin:hover .overlay-linkedin, .pablo:hover .overlay-linkedin {
+    opacity: 1
+}
+
+.linkedin-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 60px;
+    background: url(/images/linkedin_logo.png)
+}
+
+.modal-dialog, .modal:before {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.col-xs-6 {
+    padding-left: 5px
+}
+
+.external {
+    background: #AE210F;
+    color: #fff
+}
+
+.hero, .hero-sub {
+    color: #ffffff;
+}
+
+.hero {
+    font-family: 'Lobster', serif;
+    font-size: 10rem
+}
+
+.hero-sub {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 4rem
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+@media (max-width: 479px) {
+    .hero {
+        font-size: 6rem;
+        margin-top: -1rem
+    }
+
+    .hero-sub {
+        font-size: 3rem
+    }
+}
+
+@media (max-width: 991px) {
+    .site-main {
+        padding-top: 50px
+    }
+
+    p, p.services {
+        font-size: 1.3rem
+    }
+}
+
+.modal {
+    padding: 0 !important
+}
+
+.modal:before {
+    content: '';
+    height: 100%;
+    margin-right: -4px
+}
+
+.modal-dialog {
+    text-align: left
+}
+
+.section.section-features p {
+    margin-bottom: 0
+}
+
+.btn-convert {
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #e74430;
+    border-radius: 0;
+    background-color: white;
+    border: 1px solid white !important;
+    transition-duration: 500ms;
+}
+
+.btn-convert:focus, .btn-convert:hover {
+    color: white;
+    text-decoration: none;
+    background: #e74430;
+    border-radius: 0;
+}
+
+.btn-primary {
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    background: #f15f4c;
+    border-radius: 0;
+}
+
+.section.section-portfolio .entry-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+.hover-effect, img {
+    max-width: 100%;
+    height: auto;
+}

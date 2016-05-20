@@ -19,7 +19,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::get('/', 'HomeController@index');
     Route::get('password', 'HomeController@changePassword')->name('admin.password.change');
     Route::post('password', 'HomeController@postPassword')->name('admin.password.change');
-    Route::resource('model', 'ModelController');
+    Route::resource('projects', 'ProjectsController');
 });
 
 Route::auth();

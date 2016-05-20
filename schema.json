@@ -1,20 +1,30 @@
 [
   {
-    "model": "Person",
-    "table": "people",
+    "model": "Portfolio",
+    "table": "portfolios",
     "fields": [
       {
-        "name": "name",
+        "name": "title",
         "type": "string"
-      }
-    ]
-  },
-  {
-    "model": "Supplier",
-    "table": "suppliers",
-    "fields": [
+      },
       {
-        "name": "name",
+        "name": "links",
+        "type": "string"
+      },
+      {
+        "name": "type",
+        "type": "string"
+      },
+      {
+        "name": "client",
+        "type": "string"
+      },
+      {
+        "name": "date",
+        "type": "date"
+      },
+      {
+        "name": "description",
         "type": "string"
       }
     ]

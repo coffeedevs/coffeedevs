@@ -51,6 +51,8 @@
 <script src="{{ asset('assets/admin/plugins/bootstrap-sweetalert/lib/sweet-alert.js') }}"></script>
 <!-- JQueryCookie -->
 <script src="{{ asset('assets/admin/plugins/js-cookie/src/js.cookie.js') }}"></script>
+<!-- Select2 -->
+<script src="{{ asset('assets/admin/plugins/select2/select2.full.min.js') }}"></script>
 
 <script type="text/javascript">
     editor_config.selector = ".textarea";
