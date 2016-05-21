@@ -4,17 +4,17 @@
         <ul id="filters">
             <li><a href="#" data-filter="*">Todos</a></li>
             <li>/</li>
-            <li><a href="#" data-filter=".web">Desarrollo Web</a></li>
-            <li><a href="#" data-filter=".plataforma">Plataforma Online</a></li>
-            <li><a href="#" data-filter=".mp">Integración MercadoPago</a></li>
+            @foreach($types as $type)
+                <li><a href="#" data-filter=".{{ $type->code }}">{{ $type->name }}</a></li>
+            @endforeach
         </ul>
 
         <div class="portfolio-isotope row zoomIn wow">
             @foreach($projects as $project)
-                <article class="post col-md-3 col-sm-6 portfolio-item web">
+                <article class="post col-md-3 col-sm-6 portfolio-item {{ $project->type->code }}">
                     <div class="entry-thumbnail">
-                        <a target="_blank" class="hover-effect" data-toggle="modal" data-target="#project-1">
-                            <img src="{{ asset("images/projects/$project->id.png") }}" width="400" height="300"
+                        <a target="_blank" class="hover-effect" data-toggle="modal" data-target="#project-{{ $project->id }}">
+                            <img src="{{ $project->actualImage }}" width="400" height="300"
                                  alt="Desarrollo Web"/>
                             <span class="overlay"><i class="fa fa-plus"></i></span>
                         </a>
@@ -36,19 +36,17 @@
                     <article class="single-project">
                         <div class="row">
                             <div class="col-md-4">
-                                @foreach($project->links() as $link)
-                                    <button type="button" class="btn btn-block btn-primary"
-                                            onclick="window.open('{{ $link->url }}')">Ir al Sitio
-                                    </button>
-                                @endforeach
+                                <button type="button" class="btn btn-block btn-primary"
+                                        onclick="window.open('{{ $project->link }}')">Ir al Sitio
+                                </button>
                                 <ul class="list-unstyled project-info">
-                                    <li><strong>Type</strong> <span class="pull-right"><?= $tipo[$i] ?></span></li>
-                                    <li><strong>Client</strong> <span class="pull-right"><?= $cliente[$i] ?></span></li>
-                                    <li><strong>Year</strong> <span class="pull-right"><?= $anio[$i] ?></span></li>
+                                    <li><strong>Tipo</strong> <span class="pull-right">{{ $project->type->name }}</span></li>
+                                    <li><strong>Cliente</strong> <span class="pull-right">{{ $project->client }}</span></li>
+                                    <li><strong>Año</strong> <span class="pull-right">{{ $project->pretty_date }}</span></li>
                                 </ul>
                             </div>
                             <div class="col-md-8">
-                                <p><?= $descripcion[$i] ?></p>
+                                <p>{{ $project->description }}</p>
                             </div>
                         </div>
                     </article>

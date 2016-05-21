@@ -12,27 +12,26 @@
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Title</th>
-                                <th>Links</th>
+                                <th>Link</th>
                                 <th>Type</th>
                                 <th>Client</th>
                                 <th>Date</th>
                                 <th>Description</th>
+                                <th>Image</th>
                                 <th>Acción</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($projects as $project)
                                 <tr>
-                                    <td>{{$project->id}}</td>
-                                    <td>{{$project->title}}</td>
-                                    <td>{{$project->links}}</td>
-                                    <td>{{$project->type}}</td>
-                                    <td>{{$project->client}}</td>
-                                    <td>{{$project->date}}</td>
-                                    <td>{{$project->description}}</td>
-
+                                    <td>{{ $project->title }}</td>
+                                    <td><a href="{{ $project->link }}">Link</a></td>
+                                    <td>{{ $project->type->name }}</td>
+                                    <td>{{ $project->client}}</td>
+                                    <td>{{ $project->pretty_date }}</td>
+                                    <td>{{ $project->description }}</td>
+                                    <td><img height=60 src="{{ $project->actual_image }}"></td>
                                     <td>
                                         <form class="delete-form"
                                               action="{{route('admin.projects.destroy',['id'=>$project->id])}}"

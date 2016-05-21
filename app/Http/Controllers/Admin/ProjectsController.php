@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\ProjectRequest;
+use App\Http\Requests\ProjectUpdateRequest;
 use App\Project;
 use App\Services\ImageService;
 use App\Type;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Intervention\Image\Image;
 
@@ -43,15 +45,15 @@ class ProjectsController extends Controller
      */
     public function store(ProjectRequest $request, ImageService $intervention)
     {
-        Project::create([
-            'title' => $request->get('title'),
-            'link' => $request->get('link'),
-            'type_id' => $request->get('type_id'),
-            'client' => $request->get('client'),
-            'date' => $request->get('date'),
-            'description' => $request->get('description'),
-            'image' => $intervention->saveMainPicture($request->file('image')),
-        ]);
+        $project = new Project();
+        $project->title = $request->get('title');
+        $project->link = $request->get('link');
+        $project->type_id = $request->get('type_id');
+        $project->client = $request->get('client');
+        $project->date = Carbon::createFromFormat('Y', $request->get('date'));
+        $project->description = $request->get('description');
+        $project->image = $intervention->saveMainPicture($request->file('image'));
+        $project->save();
         return redirect()->route('admin.projects.index');
     }
 
@@ -76,7 +78,8 @@ class ProjectsController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -84,19 +87,20 @@ class ProjectsController extends Controller
      *
      * @param ProjectRequest|Request $request
      * @param    int $id
-     * @param Image $intervention
+     * @param ImageService|Image $intervention
      * @return \Illuminate\Http\Response
      */
-    public function update(ProjectRequest $request, $id, ImageService $intervention)
+    public function update(ProjectUpdateRequest $request, $id, ImageService $intervention)
     {
         $project = Project::find($id);
         $project->title = $request->get('title');
-        $project->links = $request->get('links');
-        $project->type = $request->get('type');
+        $project->link = $request->get('link');
+        $project->type_id = $request->get('type_id');
         $project->client = $request->get('client');
-        $project->date = $request->get('date');
+        $project->date = Carbon::createFromFormat('Y', $request->get('date'));
         $project->description = $request->get('description');
-        $project->image = $intervention->saveMainPicture($request->get('image'));
+        if ($request->hasFile('image'))
+            $project->image = $intervention->saveMainPicture($request->file('image'));
         $project->save();
         return redirect()->route('admin.projects.index');
     }

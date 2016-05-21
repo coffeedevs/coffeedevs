@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class ProjectRequest extends Request
+use App\Http\Requests\Request;
+
+class ProjectUpdateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +24,12 @@ class ProjectRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required|max:255',
-            'link' => 'required|url',
-            'type_id' => 'required',
-            'client' => 'required|max:255',
-            'date' => 'required|date_format:Y',
-            'description' => 'required|max:255',
-            'image' => 'required|image|max:4000'
+            'title' => 'max:255',
+            'link' => 'url',
+            'client' => 'max:255',
+            'date' => 'date_format:Y',
+            'description' => 'max:255',
+            'image' => 'image|max:4000'
         ];
     }
 }

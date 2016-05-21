@@ -26,30 +26,34 @@
     </div>
     <div class="form-group">
         <label for="date">Fecha</label>
-        <div class="input-group date">
-            <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-            </div>
-            <input type="text" name="date" class="form-control pull-right datepicker">
-        </div>
+        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true" name="date">
+            @for($i = \Carbon\Carbon::now()->year; $i >= 2015;  $i--)
+                <option value="{{ $i }}">{{ $i }}</option>
+            @endfor
+        </select>
     </div>
     <div class="form-group">
         <label for="description">Descripción</label>
         <input type="text" class="form-control" id="description" name="description"
                placeholder="Descripción"
-               value="@if(!empty($project)){{$project->description}}@else{{old('description')}}@endif">
+               value="@if(!empty($project)){{ $project->description }}@else{{ old('description') }}@endif">
     </div>
     <div class="form-group">
         <label for="image">Imagen</label>
 
         <div class="fileinput fileinput-new image" data-provides="fileinput">
             <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="line-height: 150px;">
-                <img src="http://silvinafrana.com/images/placeholder-image.png"></div>
+                @if(!empty($project))
+                    <img src="{{ $project->actualImage }}"/>
+                @else
+                    <img src="{{ asset('images/placeholder-image.png') }}"/>
+                @endif
+            </div>
             <div>
             <span class="btn btn-info btn-file">
                 <span class="fileinput-new">Seleccionar</span>
                 <span class="fileinput-exists">Cambiar</span>
-                <input type="hidden"><input type="file" id="image" name="image">
+                <input type="file" id="image" name="image">
             </span>
                 <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Eliminar</a>
             </div>
