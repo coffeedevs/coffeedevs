@@ -13,18 +13,18 @@ class TypeSeeder extends Seeder
     public function run()
     {
         $type = new Type();
-        $type->name = "Web";
+        $type->name = "Desarrollo Web";
         $type->code = "web";
         $type->save();
 
         $type = new Type();
-        $type->name = "Plataforma Online";
+        $type->name = "Plataforma";
         $type->code = "platform";
         $type->save();
 
 
         $type = new Type();
-        $type->name = "Integración MercadoPago";
+        $type->name = "MercadoPago";
         $type->code = "mp";
         $type->save();
 

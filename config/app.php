@@ -162,7 +162,8 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
     ],
 
     /*
@@ -208,7 +209,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
     ],
 
 ];

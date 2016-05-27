@@ -19,10 +19,10 @@ class ProjectsTest extends TestCase
             'client' => 'Client',
             'date' => '2016',
             'description' => 'Description',
-            'image' => $image,
+            'image' => $image->getPathname(),
         ];
         $this->post('admin/projects', $data)
-            ->seePageIs('admin/projects');
+            ->seeInDatabase('projects', ['title' => 'Title']);
     }
 
 }

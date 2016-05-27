@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     function index()
     {
-        $projects = Project::all();
+        $projects = Project::orderBy('id', 'desc')->get();
         $types = Type::all();
         return view('web.index', compact('projects', 'types'));
     }

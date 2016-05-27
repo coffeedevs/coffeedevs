@@ -1,8 +1,6 @@
 <script src="js/jquery-2.2.1.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
-<script src="//www.google.com/recaptcha/api.js" async defer></script>
-<script>
-</script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;

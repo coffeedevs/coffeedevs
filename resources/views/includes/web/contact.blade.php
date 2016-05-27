@@ -8,7 +8,8 @@
         </div>
         <div class="contacto-simple" id="contacto-simple">
             <div class="main-action">
-                <form id="formulario-contacto-simple" action="contact.php" method="post">
+                <form id="formulario-contacto-simple" action="{{ route('web.mail') }}" method="post">
+                    {{ csrf_field() }}
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">

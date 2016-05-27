@@ -3,8 +3,8 @@
         <h1 class="section-title"><span>Nuestros Trabajos</span></h1>
         <ul id="filters">
             <li><a href="#" data-filter="*">Todos</a></li>
-            <li>/</li>
             @foreach($types as $type)
+                <li>/</li>
                 <li><a href="#" data-filter=".{{ $type->code }}">{{ $type->name }}</a></li>
             @endforeach
         </ul>

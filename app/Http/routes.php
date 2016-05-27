@@ -13,6 +13,7 @@
 
 Route::group(['namespace' => 'Web'], function () {
     Route::get('/', 'HomeController@index')->name('web.home');
+    Route::post('contact', 'ContactController@contact')->name('web.mail');
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
