@@ -15,7 +15,7 @@ class ContactController extends Controller
             $mail->from('contacto@coffeedevs.com', 'Contacto Coffee');
             $mail->to('coffeedevs@gmail.com')->subject('Tenemos una nueva consulta');
         });
-        if ($sent >= 1) {
+        if ($sent->getStatusCode() == 200) {
             $response = [
                 'message' => 'success',
                 'sendstatus' => 1,
