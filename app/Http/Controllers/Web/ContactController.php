@@ -11,9 +11,21 @@ class ContactController extends Controller
 {
     public function contact(ContactRequest $request)
     {
-        Mail::send('emails.contact', $request->toArray(), function ($mail) use ($request) {
+        $sent = Mail::send('emails.contact', $request->toArray(), function ($mail) use ($request) {
             $mail->from('contacto@coffeedevs.com', 'Contacto Coffee');
             $mail->to('coffeedevs@gmail.com')->subject('Tenemos una nueva consulta');
         });
+        if ($sent >= 1) {
+            $response = [
+                'message' => 'success',
+                'sendstatus' => 1,
+            ];
+        } else {
+            $response = [
+                'message' => 'error',
+                'sendstatus' => 0,
+            ];
+        }
+        return $response;
     }
 }

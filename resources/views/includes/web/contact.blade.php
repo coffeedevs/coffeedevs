@@ -1,6 +1,8 @@
 <section id="contact" class="section section-center section-contact">
     <div class="container">
-        <h2 class="section-title"><span id="span-consulta">Hacenos tu consulta!</span></h2>
+        <h1 class="section-title">
+            <span id="span-consulta">Hacenos tu consulta!</span>
+        </h1>
         <div class="row">
             <div class="elegir-contacto col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
                 Envianos tu consulta y te contestamos en seguida!
