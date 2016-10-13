@@ -35,7 +35,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/admin/dist/js/app.min.js') }}"></script>
 <!-- Vue.js -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.20/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.20/vue.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.7.0/vue-resource.min.js"></script>
 <!-- Datatables.js -->
 <script src="{{asset('assets/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
