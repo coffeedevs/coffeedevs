@@ -5,6 +5,8 @@
     }
 </script>
 <script type="text/javascript" src="app.js"></script>
+<script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('js/optimize.js') }}"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
     (function (i, s, o, g, r, a, m) {
@@ -21,5 +23,4 @@
 
     ga('create', 'UA-63308453-1', 'auto');
     ga('send', 'pageview');
-
 </script>

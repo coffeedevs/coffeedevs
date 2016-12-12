@@ -164,6 +164,8 @@ return [
         //Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
+        Approached\LaravelImageOptimizer\ServiceProvider::class,
+
     ],
 
     /*

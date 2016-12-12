@@ -2,16 +2,17 @@
 
 namespace App\Services;
 
+use Approached\LaravelImageOptimizer\ImageOptimizer;
 use Illuminate\Support\Facades\File;
+use ImageOptimizer\Exception\Exception;
 use Intervention\Image\Facades\Image;
 use Intervention\Image\Image as Intervention;
 
 class ImageService
 {
+    protected $path, $resizedPath, $intervention, $optimizer;
 
-    protected $path, $resizedPath, $intervention;
-
-    public function __construct(Intervention $intervention)
+    public function __construct(Intervention $intervention, ImageOptimizer $imageOptimizer)
     {
         $this->path = public_path() . '/images/projects/';
         $this->resizedPath = public_path() . '/images/projects/resized/';
@@ -23,6 +24,7 @@ class ImageService
             File::makeDirectory($this->resizedPath, $mode = 0777, true, true);
         }
         $this->intervention = $intervention;
+        $this->optimizer = $imageOptimizer;
     }
 
     private function makeMediumQualityImage($fileName)
@@ -37,7 +39,14 @@ class ImageService
         } while (file_exists($fileName));
 
         File::copy($file, $this->path . $fileName);
+        try {
+            $this->optimizer->optimizeImage($this->path . $fileName);
+        } catch (Exception $ex) {
+
+        }
+
         self::makeMediumQualityImage($fileName);
+
         return $fileName;
     }
 }
