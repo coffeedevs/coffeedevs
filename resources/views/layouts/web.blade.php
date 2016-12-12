@@ -24,6 +24,7 @@
     @section('styles')
         @include('includes.web.styles')
     @show
+    @include('includes.web.analytics')
 </head>
 <body>
 <div id="page">
