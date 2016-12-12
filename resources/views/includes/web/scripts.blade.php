@@ -4,9 +4,12 @@
         restartOnRequestAfter: false
     }
 </script>
-<script type="text/javascript" src="app.js"></script>
-<script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('js/optimize.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.singlePageNav.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.isotope.min543c.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js//wow.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap-3.1.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/pace.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
     (function (i, s, o, g, r, a, m) {
