@@ -5,9 +5,9 @@
                 <div class="center">
                     <span class="hero">CoffeeDevs</span>
                     <br/>
-                    <span class="hero-sub">Estudio de Desarrollo Web</span>
+                    <span class="hero-sub">El aliado tecnológico que tu empresa necesita</span>
                     <br/>
-                    <a href="#contact" class="btn ui-btn-lg btn-convert smooth-scroll" style="margin:2rem 0;">Consultanos!</a>
+                    <a href="#contact" class="btn ui-btn-lg btn-convert smooth-scroll" style="margin:2rem 0;">Quiero mi presupuesto gratis</a>
                 </div>
             </div>
         </div>

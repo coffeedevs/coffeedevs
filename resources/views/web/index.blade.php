@@ -1,6 +1,7 @@
 @extends('layouts.web')
 @section('content')
     @include('includes.web.carousel')
+    {{--@include('includes.web.about')--}}
     @include('includes.web.features')
     @include('includes.web.services')
     @include('includes.web.portfolio')
