@@ -3,7 +3,7 @@
 <link href="css/app.css" rel="stylesheet">
 <link href="css/animate.css" rel="stylesheet"/>
 
-<link href='https://fonts.googleapis.com/css?family=Open+Sans|Lobster&text=CoffeeDevs' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway|Lato|Open+Sans' rel='stylesheet' type='text/css'>
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
 <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

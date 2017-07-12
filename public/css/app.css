@@ -9,11 +9,11 @@
 }
 
 body {
-    font-family: gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important
+    font-family: 'Open Sans', gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important
 }
 
 h1, h2, h3 {
-    font-family: gotham-medium, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+    font-family: 'Open Sans', gotham-medium, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
 p {
@@ -28,7 +28,7 @@ p {
 }
 
 .site-navbar .navbar-brand a {
-    font-family: 'Open Sans', Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+    font-family: 'Raleway', 'Open Sans', Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
 .site-main {
@@ -222,8 +222,8 @@ h3 {
 }
 
 .external {
-    background: #AE210F;
-    color: #fff
+    border-bottom: 3px solid hsl(7, 85%, 50%);
+    font-weight: bold;
 }
 
 .hero, .hero-sub {
@@ -231,7 +231,7 @@ h3 {
 }
 
 .hero {
-    font-family: 'Lobster', serif;
+    font-family: 'Raleway', serif;
     font-size: 10rem
 }
 
@@ -322,4 +322,74 @@ h3 {
 .hover-effect, img {
     max-width: 100%;
     height: auto;
+}
+
+.site-navbar .navbar-nav .active a, .site-navbar .navbar-nav a:active {
+    background: none;
+    color: #f15f4c;
+    border-bottom: 3px solid #f15f4c;
+}
+
+.site-navbar .navbar-nav a {
+    border-radius: 0;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
+.feature-divider {
+    background: #f15f4c;
+    height: 3px;
+    margin: 1em 0;
+    width: 5em;
+}
+
+body {
+    font-family: 'Railway', sans-serif;
+}
+
+.premium-course .premium-card {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .16);
+    margin: 25px 0 0;
+}
+
+.premium-course .premium-color.color-docker {
+    background: #f15f4c;
+}
+
+.premium-course .premium-color {
+    height: 10px;
+}
+
+.premium-course .premium-info {
+    padding: 20px;
+}
+
+.premium-course h3 {
+    color: #b4493a;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0 0 18px;
+}
+
+.premium-course h3 a {
+    color: #b4493a;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.premium-course a {
+    color: #b4493a;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.premium-course p {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.premium-course p.view-course {
+    margin: 0;
 }

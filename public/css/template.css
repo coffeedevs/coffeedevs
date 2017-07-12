@@ -8221,7 +8221,7 @@ a {
     line-height: 40px;
     font-size: 24px;
     color: #4b494f;
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+    font-family: 'Raleway', Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
 .site-navbar .navbar-brand a:active, .site-navbar .navbar-brand a:hover {
@@ -8543,4 +8543,8 @@ a {
     -ms-transition-duration: 0s;
     -o-transition-duration: 0s;
     transition-duration: 0s
+}
+
+.site-navbar {
+    border-top: 5px solid #f15f4c;
 }

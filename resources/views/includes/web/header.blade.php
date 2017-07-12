@@ -6,7 +6,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-bars"></i>
                 </button>
-                <h1 class="navbar-brand"><i class="fa fa-coffee"></i> <a href="">CoffeeDevs Beta</a></h1>
+                <h1 class="navbar-brand"><i class="fa fa-coffee"></i> <a href="">CoffeeDevs</a></h1>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul id="navigation" class="nav navbar-nav navbar-right">
@@ -15,9 +15,14 @@
                     <li><a href="#services">Servicios</a></li>
                     <li><a href="#portfolio">Nuestros Trabajos</a></li>
                     <li><a href="#team">El Equipo</a></li>
-                    <li><a href="#contact">Contactanos!</a></li>
+                    <li><a href="#contact">Contacto</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a class="external" href="http://blog.coffeedevs.com/">Visita nuestro Blog!</a></li>
+                    <li><a class="external" href="http://blog.coffeedevs.com/">Visita el Blog!</a></li>
+                    @if(config('app.locale') == 'es')
+                        <li><a href="">EN</a></li>
+                    @else
+                        <li><a href="">EN</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
