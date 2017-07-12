@@ -6,7 +6,7 @@
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-bars"></i>
                 </button>
-                <h1 class="navbar-brand"><i class="fa fa-coffee"></i> <a href="">CoffeeDevs</a></h1>
+                <h1 class="navbar-brand"><i class="fa fa-coffee"></i> <a href="">CoffeeDevs Beta</a></h1>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul id="navigation" class="nav navbar-nav navbar-right">
