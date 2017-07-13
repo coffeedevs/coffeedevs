@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use App\Project;
 use App\Type;
+use willvincent\Feeds\Facades\FeedsFacade;
 
 class HomeController extends Controller
 {
@@ -13,6 +13,10 @@ class HomeController extends Controller
     {
         $projects = Project::orderBy('id', 'desc')->get();
         $types = Type::all();
-        return view('web.index', compact('projects', 'types'));
+
+        $feed = FeedsFacade::make('https://blog.coffeedevs.com/rss');
+        $blogPosts = collect($feed->get_items())->take(6);
+
+        return view('web.index', compact('projects', 'types', 'blogPosts'));
     }
 }

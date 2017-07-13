@@ -1,8 +1,8 @@
 <section id="portfolio" class="section section-portfolio">
     <div class="container">
-        <h1 class="section-title"><span>Nuestros Trabajos</span></h1>
+        <h1 class="section-title"><span>@lang('web.portfolio.title')</span></h1>
         <ul id="filters">
-            <li><a href="#" data-filter="*">Todos</a></li>
+            <li><a href="#" data-filter="*">@lang('web.portfolio.all')</a></li>
             @foreach($types as $type)
                 <li>/</li>
                 <li><a href="#" data-filter=".{{ $type->code }}">{{ $type->name }}</a></li>
