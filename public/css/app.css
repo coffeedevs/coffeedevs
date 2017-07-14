@@ -238,7 +238,7 @@ h3 {
 
 .hero-sub {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 4rem
+    font-size: 3rem
 }
 
 .center {
@@ -255,7 +255,7 @@ h3 {
     }
 
     .hero-sub {
-        font-size: 3rem
+        font-size: 2rem
     }
 }
 
@@ -409,5 +409,26 @@ body {
 }
 
 section {
+    border-bottom: 3px solid #f15f4c;
+}
+
+#services {
+    text-align: left;
+}
+
+#services h2 {
+    border-bottom: 3px solid #f15f4c;
+    padding: 5px;
+    display: inline-block;
+}
+
+#services p {
+    padding: 10px 0;
+}
+
+#services h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    display: inline-block;
     border-bottom: 3px solid #f15f4c;
 }

@@ -1,37 +1,37 @@
 <?php
 return [
     'hero' => [
-        'sub' => 'El aliado tecnológico que tu empresa necesita',
+        'sub' => 'Te llevamos de IDEA a PRODUCTO',
         'cta' => 'Trabajemos juntos',
     ],
     'services' => [
-        'title' => 'Expertise'
+        'title' => 'Servicios'
     ],
     'features' => [
         'title' => 'Lo que hacemos',
         '0' => [
-            'title' => 'Databases',
-            'text' => 'Learn how to install, manage, backup and configure the most important part of your applications.'
+            'title' => 'CONSTRUIMOS',
+            'text' => 'We build full fledged MVPs for entrepreneurs and startups looking to turn their ideas into reality.'
         ],
         '1' => [
-            'title' => 'Databases',
+            'title' => 'AUTOMATIZAMOS',
             'text' => 'Learn how to install, manage, backup and configure the most important part of your applications.'
         ],
         '2' => [
-            'title' => 'Databases',
-            'text' => 'Learn how to install, manage, backup and configure the most important part of your applications.'
+            'title' => 'OPTIMIZAMOS',
+            'text' => 'We increase your online sales by updating copy, optimizing calls to action, and creating measurable traffic funnels.'
         ],
         '3' => [
-            'title' => 'Databases',
-            'text' => 'Learn how to install, manage, backup and configure the most important part of your applications.'
+            'title' => 'SEGUIMOS',
+            'text' => 'We create KPIs tied to your goals and teaching you to track your progress and achievements with metrics.'
         ],
         '4' => [
-            'title' => 'Databases',
-            'text' => 'Learn how to install, manage, backup and configure the most important part of your applications.'
+            'title' => 'ARREGLAMOS',
+            'text' => 'We fix bugs and poorly written code, especially the kind that stemmed from your previous, outsourced development team.'
         ],
         '5' => [
-            'title' => 'Databases',
-            'text' => 'Learn how to install, manage, backup and configure the most important part of your applications.'
+            'title' => 'MEJORAMOS',
+            'text' => 'We work on or maintain existing and legacy projects for creative and marketing agencies that need extra manpower or expertise.'
         ],
     ],
     'blog' => [

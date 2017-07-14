@@ -1,6 +1,6 @@
 <section id="features" class="section section-center  section-features">
     <div class="container">
-        <h1 class="section-title"><span>Lo que hacemos</span></h1>
+        <h1 class="section-title"><span>@lang('web.features.title')</span></h1>
 
         <div class="row wow bounceInUp text-left">
 

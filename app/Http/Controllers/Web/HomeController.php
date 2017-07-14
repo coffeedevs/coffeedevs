@@ -19,4 +19,16 @@ class HomeController extends Controller
 
         return view('web.index', compact('projects', 'types', 'blogPosts'));
     }
+
+    public function services()
+    {
+        return view('web.services');
+    }
+
+    public function locale($locale)
+    {
+        session(['locale' => $locale]);
+
+        return back();
+    }
 }
