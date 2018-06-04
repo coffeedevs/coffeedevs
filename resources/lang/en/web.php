@@ -117,6 +117,7 @@ return [
             'title' => 'ENHANCE',
             'text' => 'We work on or maintain existing and legacy projects for creative and marketing agencies that need extra manpower or expertise.'
         ],
+        'cta' => 'Email us today'
     ],
     'blog' => [
         'title' => 'Latest posts from our blog',

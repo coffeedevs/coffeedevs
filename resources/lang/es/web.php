@@ -111,6 +111,7 @@ HTTPS? Lo tenemos cubierto. Somos excepcionales en ajustar el rendimiento de un 
             'title' => 'MEJORAMOS',
             'text' => 'Trabajamos en o mantenemos proyectos existentes y legacy para agencias de marketing y creativos que necesitan un apoyo extra de recursos humanos o expertise.'
         ],
+        'cta' => 'Envíanos hoy un email'
     ],
     'blog' => [
         'title' => 'Lo último del Blog',

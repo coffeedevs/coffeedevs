@@ -1,6 +1,6 @@
 <header class="main-header">
     <a href="{{ route('web.home') }}" class="logo">
-        <span class="logo-mini"><i class="fa fa-coffee" style="margin: 5px; font-size: 35px;"></i></span>
+        <span class="logo-mini"><img src="images/logo.png" alt="Logo Coffeedevs"></span>
         <span class="logo-lg"><b>CoffeeDevs</b></span>
     </a>
 

@@ -364,13 +364,13 @@ body {
 }
 
 .premium-course .premium-info {
-    padding: 20px;
+    padding: 30px;
 }
 
 .premium-course h3 {
     color: #b4493a;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 22px;
     margin: 0 0 18px;
 }
 
@@ -399,13 +399,13 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(31, 8, 4, 0.55);
     height: 100%;
     width: 100%;
 }
 
 .hero, .hero-sub {
-    text-shadow: 2px 1px grey;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
 }
 
 section {
@@ -431,4 +431,23 @@ section {
     text-transform: uppercase;
     display: inline-block;
     border-bottom: 3px solid #f15f4c;
+}
+
+.navbar-brand {
+    font-size: 32px;
+}
+
+.coffee-logo {
+    height: 48px;
+}
+
+.service {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.service h2 {
+    color: #f15f4c;
+    font-weight: 600;
 }

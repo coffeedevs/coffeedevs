@@ -47,8 +47,6 @@
     display: none;
 }
 
-
-
 /************ PACE PROGRESS **************/
 
 body {
@@ -72,4 +70,3 @@ body:not(.pace-done) > *:not(.pace), body:not(.pace-done):before, body:not(.pace
 }
 
 /**************** END PACE ****************/
-

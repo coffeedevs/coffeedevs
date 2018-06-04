@@ -15,7 +15,7 @@ class HomeController extends Controller
         $types = Type::all();
 
         $feed = FeedsFacade::make('https://blog.coffeedevs.com/rss');
-        $blogPosts = collect($feed->get_items())->take(6);
+        $blogPosts = collect($feed->get_items())->take(3);
 
         return view('web.index', compact('projects', 'types', 'blogPosts'));
     }
