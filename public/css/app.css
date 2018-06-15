@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: 'Open Sans', gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important
+    font-family: 'Open Sans', gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     text-rendering: optimizeLegibility;
 }
 
@@ -120,7 +120,7 @@ div.services img {
 }
 
 p.services {
-    font-family: gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1.5rem;
     line-height: 160%;
     font-weight: 100;
@@ -446,7 +446,8 @@ section {
 .service {
     font-size: 18px;
     line-height: 1.5;
-    font-weight: 300;
+    font-weight: 100;
+    font-family:'Open Sans';
 }
 
 .service h2 {
@@ -456,4 +457,9 @@ section {
 
 #blog .btn-primary {
     margin-top: 2rem;
+}
+
+.premium-card:hover {
+    transition-duration: 500ms;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
