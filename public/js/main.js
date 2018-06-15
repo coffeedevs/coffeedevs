@@ -75,7 +75,7 @@ $('#formulario-contacto-simple').submit(function (e) {
         var data = ($('#formulario-contacto-simple').serialize());
 
         $.ajax({
-            url: 'contact.php',
+            url: 'contact',
             method: 'post',
             data: data + "&contacto-simple=button",
             dataType: "json",
