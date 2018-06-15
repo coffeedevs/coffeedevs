@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'es',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,7 +165,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         Approached\LaravelImageOptimizer\ServiceProvider::class,
-
+        willvincent\Feeds\FeedsServiceProvider::class,
     ],
 
     /*
@@ -213,6 +213,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
+        'Feeds'    => willvincent\Feeds\Facades\FeedsFacade::class,
     ],
 
 ];

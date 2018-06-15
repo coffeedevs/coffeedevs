@@ -15,7 +15,7 @@ $(window).load(function () {
 // One Page Navigation Setup
     $('#navigation').singlePageNav({
         offset: $navbar.outerHeight(),
-        filter: ':not(.external)',
+        filter: ':not(.linkable)',
         speed: 750,
         currentClass: 'active'
     });

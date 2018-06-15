@@ -6,18 +6,20 @@
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-bars"></i>
                 </button>
-                <h1 class="navbar-brand"><i class="fa fa-coffee"></i> <a href="">CoffeeDevs</a></h1>
+                <h1 class="navbar-brand"><img src="images/logo.png" alt="Logo Coffeedevs" class="coffee-logo"><a href="{{ url('/') }}">CoffeeDevs</a></h1>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul id="navigation" class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#header" class="current">Home</a></li>
-                    <li><a href="#features">Lo que hacemos</a></li>
-                    <li><a href="#services">Servicios</a></li>
-                    <li><a href="#portfolio">Nuestros Trabajos</a></li>
-                    <li><a href="#team">El Equipo</a></li>
-                    <li><a href="#contact">Contactanos!</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a class="external" href="http://blog.coffeedevs.com/">Visita nuestro Blog!</a></li>
+                    <li><a href="#header" class="current">Home</a></li>
+                    <li><a href="#features" class="smooth-scroll">@lang('web.features.title')</a></li>
+                    <li><a href="#portfolio" class="smooth-scroll">@lang('web.portfolio.title')</a></li>
+                    <li><a href="#contact" class="smooth-scroll">@lang('web.contact.cta')</a></li>
+                    <li><a href="http://blog.coffeedevs.com/" class="external">@lang('web.blog.cta')</a></li>
+                    @if(config('app.locale') == 'es')
+                        <li><a class="linkable" href="{{ route('web.locale', 'en') }}">English</a></li>
+                    @else
+                        <li><a class="linkable" href="{{ route('web.locale', 'es') }}">Español</a></li>
+                    @endif
                 </ul>
             </div>
         </div>

@@ -6,12 +6,13 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
+        "laravel/framework": "5.4.*",
         "intervention/image": "^2.3",
         "greggilbert/recaptcha": "^2.1",
         "guzzlehttp/guzzle": "~4.0",
         "barryvdh/laravel-ide-helper": "^2.2",
-        "approached/laravel-image-optimizer": "^2.2"
+        "approached/laravel-image-optimizer": "^2.2",
+        "willvincent/feeds": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

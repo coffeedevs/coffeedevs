@@ -9,12 +9,12 @@
 }
 
 body {
+    font-family: 'Open Sans', gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important
     text-rendering: optimizeLegibility;
-    font-family: gotham, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif !important
 }
 
 h1, h2, h3 {
-    font-family: gotham-medium, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+    font-family: 'Open Sans', gotham-medium, Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
 p {
@@ -22,14 +22,20 @@ p {
 }
 
 .background {
-    background: #f15f4c;
+    background-color: #f15f4c;
+    background-image: url('/images/bg3.jpg');
     background-size: cover;
+    background-position: center;
     height: 100vh;
     position: relative
 }
 
+.coffee-logo {
+    height: 48px;
+}
+
 .site-navbar .navbar-brand a {
-    font-family: 'Open Sans', Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+    font-family: 'Raleway', 'Open Sans', Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
 .site-main {
@@ -197,10 +203,6 @@ h3 {
     vertical-align: middle
 }
 
-.facu:hover .overlay-linkedin, .lean:hover .overlay-linkedin, .martin:hover .overlay-linkedin, .pablo:hover .overlay-linkedin {
-    opacity: 1
-}
-
 .linkedin-logo {
     display: block;
     margin-left: auto;
@@ -219,8 +221,8 @@ h3 {
 }
 
 .external {
-    background: #AE210F;
-    color: #fff
+    border-bottom: 3px solid hsl(7, 85%, 50%);
+    font-weight: bold;
 }
 
 .hero, .hero-sub {
@@ -228,13 +230,13 @@ h3 {
 }
 
 .hero {
-    font-family: 'Lobster', serif;
+    font-family: 'Raleway', serif;
     font-size: 10rem
 }
 
 .hero-sub {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 4rem
+    font-size: 3rem
 }
 
 .center {
@@ -251,7 +253,11 @@ h3 {
     }
 
     .hero-sub {
-        font-size: 3rem
+        font-size: 2rem
+    }
+
+    .coffee-logo {
+        height: 36px;
     }
 }
 
@@ -262,6 +268,10 @@ h3 {
 
     p, p.services {
         font-size: 1.3rem
+    }
+
+    .section {
+        padding: 30px 15px;
     }
 }
 
@@ -319,4 +329,131 @@ h3 {
 .hover-effect, img {
     max-width: 100%;
     height: auto;
+}
+
+.site-navbar .navbar-nav .active a, .site-navbar .navbar-nav a:active {
+    background: none;
+    color: #f15f4c;
+    border-bottom: 3px solid #f15f4c;
+}
+
+.site-navbar .navbar-nav a {
+    border-radius: 0;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
+.divider {
+    background: #f15f4c;
+    height: 3px;
+    margin: 1em 0;
+    width: 5em;
+}
+
+body {
+    font-family: 'Railway', sans-serif;
+}
+
+.premium-course .premium-card {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .16);
+    margin: 25px 0 0;
+}
+
+.premium-course .premium-color.color-docker {
+    background: #f15f4c;
+}
+
+.premium-course .premium-color {
+    height: 10px;
+}
+
+.premium-course .premium-info {
+    padding: 30px;
+}
+
+.premium-course h3 {
+    color: #b4493a;
+    font-weight: 400;
+    font-size: 22px;
+    margin: 0 0 18px;
+}
+
+.premium-course h3 a {
+    color: hsla(7, 65%, 60%, 1);
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.premium-course a {
+    color: hsla(7, 65%, 60%, 1);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.premium-course p {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.premium-course p.view-course {
+    margin: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(31, 8, 4, 0.55);
+    height: 100%;
+    width: 100%;
+}
+
+.hero, .hero-sub {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
+}
+
+section {
+    border-bottom: 3px solid #f15f4c;
+}
+
+#services {
+    text-align: left;
+}
+
+#services h2 {
+    border-bottom: 3px solid #f15f4c;
+    padding: 5px;
+    display: inline-block;
+}
+
+#services p {
+    padding: 10px 0;
+}
+
+#services h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom: 3px solid #f15f4c;
+}
+
+.navbar-brand {
+    font-size: 32px;
+}
+
+.service {
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.service h2 {
+    color: #f15f4c;
+    font-weight: 600;
+}
+
+#blog .btn-primary {
+    margin-top: 2rem;
 }

@@ -13,6 +13,8 @@
 
 Route::group(['namespace' => 'Web'], function () {
     Route::get('/', 'HomeController@index')->name('web.home');
+    Route::get('/services', 'HomeController@services')->name('web.services');
+    Route::get('/locale/{locale}', 'HomeController@locale')->name('web.locale');
     Route::post('contact', 'ContactController@contact')->name('web.mail');
 });
 

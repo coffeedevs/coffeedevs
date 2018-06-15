@@ -1,10 +1,10 @@
 @extends('layouts.web')
 @section('content')
-    @include('includes.web.carousel')
-    {{--@include('includes.web.about')--}}
+    @include('includes.web.hero')
     @include('includes.web.features')
-    @include('includes.web.services')
     @include('includes.web.portfolio')
-    @include('includes.web.team')
+    {{--@include('includes.web.services')--}}
+    @include('includes.web.blog')
+    {{--@include('includes.web.team')--}}
     @include('includes.web.contact')
 @endsection
