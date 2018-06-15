@@ -2,7 +2,7 @@
     <div class="container">
         <h1 class="section-title"><span>@lang('web.features.title')</span></h1>
 
-        <div class="row wow bounceInUp text-left">
+        <div class="row wow fadeInUp text-left">
 
             {{--@foreach(range(1,6) as $index => $features)--}}
             {{--<div class="col-md-4 col-sm-6">--}}
@@ -16,9 +16,8 @@
                     <div class="service-icon">
                         <i class="icon icon-home-service-custom-development"></i>
                     </div>
-                    <h2>Custom Software Development</h2>
-                    Whether you are a start-up or an established business, we are ready to assist you at every stage of the software development life cycle — from
-                    conceptualization and consulting to development and support.
+                    <h2>@lang('web.features.0.title')</h2>
+                    @lang('web.features.0.text')
                 </div>
             </div>
             <div class="col-md-4">
@@ -26,9 +25,8 @@
                     <div class="service-icon">
                         <i class="icon icon-home-service-web-development"></i>
                     </div>
-                    <h2>Web Application Development</h2>
-                    Our software engineers have a wealth of experience in building web applications. We are also experts in many verticals and business domains, including
-                    e-Commerce, e-Learning, AdTech, Finance, Entertainment, and more.
+                    <h2>@lang('web.features.1.title')</h2>
+                    @lang('web.features.1.text')
                 </div>
             </div>
             <div class="col-md-4">
@@ -36,14 +34,13 @@
                     <div class="service-icon">
                         <i class="icon icon-home-service-mobile-development"></i>
                     </div>
-                    <h2>Mobile Application Development</h2>
-                    Develop powerful, highly usable mobile apps that solve business problems, attract users, and rein­force your brand. We build native, hybrid, and
-                    cross-platform apps that run on all major operating systems such as iOS and Android.
+                    <h2>@lang('web.features.2.title')</h2>
+                    @lang('web.features.2.text')
                 </div>
             </div>
         </div>
 
-        <a href="#contact" class="btn btn-primary ui-btn-lg smooth-scroll" style="margin:2rem 0;">@lang('web.features.cta')</a>
-
+        <a href="#contact" class="btn btn-primary ui-btn-lg smooth-scroll"
+           style="margin:2rem 0;">@lang('web.features.cta')</a>
     </div>
 </section>

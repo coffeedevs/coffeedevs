@@ -13,12 +13,12 @@ $(window).load(function () {
     });
 
 // One Page Navigation Setup
-/*    $('#navigation').singlePageNav({
+    $('#navigation').singlePageNav({
         offset: $navbar.outerHeight(),
         filter: ':not(.linkable)',
         speed: 750,
         currentClass: 'active'
-    });*/
+    });
 
 // Sticky Navbar Affix
     $navbar.affix({
