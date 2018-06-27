@@ -13,12 +13,12 @@ $(window).load(function () {
     });
 
 // One Page Navigation Setup
-/*    $('#navigation').singlePageNav({
+    $('#navigation').singlePageNav({
         offset: $navbar.outerHeight(),
         filter: ':not(.linkable)',
         speed: 750,
         currentClass: 'active'
-    });*/
+    });
 
 // Sticky Navbar Affix
     $navbar.affix({
@@ -75,7 +75,7 @@ $('#formulario-contacto-simple').submit(function (e) {
         var data = ($('#formulario-contacto-simple').serialize());
 
         $.ajax({
-            url: 'contact.php',
+            url: 'contact',
             method: 'post',
             data: data + "&contacto-simple=button",
             dataType: "json",

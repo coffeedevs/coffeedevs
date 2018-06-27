@@ -2,7 +2,7 @@
 
     <div class="container">
         <div class="pull-left" style="padding:20px;">
-            <a href="http://coffeedevs.com/">CoffeeDevs - Desarrollo para Startups </a>
+            <a href="http://coffeedevs.com/">CoffeeDevs - @lang('web.footer')</a>
         </div>
         <div class="pull-right">
             <ul class="social-links">

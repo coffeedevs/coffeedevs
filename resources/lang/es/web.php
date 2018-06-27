@@ -1,13 +1,13 @@
 <?php
 return [
-    'hero' => [
-        'sub' => 'Te llevamos de IDEA a PRODUCTO',
+    'hero'      => [
+        'sub' => 'Desarrollo profesional de software',
         'cta' => 'Trabajemos juntos',
     ],
-    'services' => [
+    'services'  => [
         'title' => 'Servicios',
-        '1' => [
-            'sub' => 'Una mirada general',
+        '1'     => [
+            'sub'  => 'Una mirada general',
             'text' => '<p>Proveemos servicios de desarrollo web para clientes concientes de la calidad que entienden el valor
  de contratar desarrolladores profesionales. Tenemos la pericia técnica para arquitecturar y desplegar tu aplicación como la imaginas.</p>
 
@@ -16,10 +16,10 @@ return [
                 Cuando trabajas con nosotros, recibes nuestras sugerencias y recomendaciones sin filtros. Queremos verte triunfar!
                </p>
 
-                <p>Si estas buscando desarrolladores web de primera categoría, actualizaciones semanales de tus entregables, y un gran producto final, no busques más.</p>'
+                <p>Si estas buscando desarrolladores web de primera categoría, actualizaciones semanales de tus entregables, y un gran producto final, no busques más.</p>',
         ],
-        '2' => [
-            'sub' => 'OTROS SERVICIOS WEB',
+        '2'     => [
+            'sub'  => 'OTROS SERVICIOS WEB',
             'text' => '<p>Podríamos escribir una novela sobre el trabajo que realizamos
 Para darte una mejor idea, aquí hay solo algunos de los servicios que ofrecemos.
 Si necesitas más información en cualquiera de los items que ves aquí, no dudes en preguntar.</p>
@@ -33,8 +33,8 @@ Si necesitas más información en cualquiera de los items que ves aquí, no dude
                     <li>Despliegue, mantenimiento, actualización y configuración de servidores</li>
                 </ul>',
         ],
-        '3' => [
-            'sub' => 'DESARROLLO "FULL STACK"',
+        '3'     => [
+            'sub'  => 'DESARROLLO "FULL STACK"',
             'text' => '<p>Nos especializamos en construir aplicaciones web de principio a fin. Esto significa que manejamos tanto desarrollo front-end como back-end.
 Si estás buscando expertos en frameworks PHP como Laravel o Symfony, o frameworks JavaScript como Vue, Angular o jQuery, deberíamos hablar.
 Alentamos el uso de herramientas modernas que automatizan el trabajo con recursos de frontend como Gulp o Webpack.</p>
@@ -49,8 +49,8 @@ Alentamos el uso de herramientas modernas que automatizan el trabajo con recurso
                 <p>Algunos de los login sociales más comunes que hemos integrado son Twitter, Facebook, Github,
                     Instagram, y Google.</p>',
         ],
-        '4' => [
-            'sub' => 'OPTIMIZACIÓN Y PUESTA A PUNTO DE WEBSITES',
+        '4'     => [
+            'sub'  => 'OPTIMIZACIÓN Y PUESTA A PUNTO DE WEBSITES',
             'text' => '<p>Tenemos décadas de experiencia diagnosticando y corrigiendo problemas de rendimiento en sitios web.
                         Podemos encontrar cuellos de botella en tus aplicaciones web, base de datos, y servidor que están constandote visitantes y dinero.
                          Hay tantas posibilidades para mejorar, que somos positivos que podemos mejorar tu rendimiento.
@@ -68,8 +68,8 @@ Alentamos el uso de herramientas modernas que automatizan el trabajo con recurso
                     <li>Archivos JS y CSS sin comprimir y minificar.</li>
                 </ul>',
         ],
-        '5' => [
-            'sub' => 'OPTIMIZACIÓN PARA MOTORES DE BÚSQUEDA (SEO)',
+        '5'     => [
+            'sub'  => 'OPTIMIZACIÓN PARA MOTORES DE BÚSQUEDA (SEO)',
             'text' => '<p>Nos encantaría analizar y monitorear tu sitio para mejorar su ránking de búsqueda.
             Empleamos una variedad de tácticas que incluyen investigación de palabras clave, monitoreo del ranking de palabras clave en SERP (páginas de resultado),
             monitoreo de enlaces de retroceso (backlinks), monitoreo de competidores y más. Utilizamos el descubrimiento de esta preciada información para realizar
@@ -77,61 +77,52 @@ Alentamos el uso de herramientas modernas que automatizan el trabajo con recurso
             de links generados desde adentro (Inbound marketing).
                 </p>',
         ],
-        '6' => [
-            'sub' => 'HOSTING WEB ADMINISTRADO',
+        '6'     => [
+            'sub'  => 'HOSTING WEB ADMINISTRADO',
             'text' => '<p>Con gusto trabajaremos contigo para definir una solución de alojamiento que encaja con las necesidades de tus aplicaciones y sus patrones de tráfico.
 Somos expertos en Linux, y podemos configurar manualmente cualquier número de VPS o máquinas dedicadas que tenga su compañia o startup.
 Nos encargamos del alojamiento y la administración de los servidores, desplegando su aplicación en nuestros servidores en DigitalOcean o en-sitio.
 HTTPS? Lo tenemos cubierto. Somos excepcionales en ajustar el rendimiento de un servidor web para mantener su sitio seguro e increíblemente rápido.</p>',
-        ]
+        ],
     ],
-    'features' => [
+    'features'  => [
         'title' => 'Lo que hacemos',
-        '0' => [
-            'title' => 'CONSTRUIMOS',
-            'text' => 'Construimos MVPs (Producto mínimo viable) totalmente desarrollados para emprendedores y startups buscando transformar sus ideas en realidad.'
+        '0'     => [
+            'title' => 'Desarrollo de software personalizado',
+            'text'  => 'Así seas una start-up o una empresa ya establecida, estamos dispuestos a asistirte en cada etapa del ciclo de vida del desarrollo de software, en su conceptualización y en la consultoría necesaria para su desarrollo y soporte.',
         ],
-        '1' => [
-            'title' => 'AUTOMATIZAMOS',
-            'text' => 'Aprende como instalar, manejar, resguardar y configurar los aspectos más importantes de tus aplicaciones.'
+        '1'     => [
+            'title' => 'Desarrollo de aplicaciones web',
+            'text'  => 'Nuestros ingenieros en software tienen una amplia experiencia en construcción de aplicaciones web. 
+            También son expertos en múltiples verticales y dominios de negocio, incluyendo e-commerce, e-learning, sistemas de gestión, de stock, CRM, ERP  y demás.',
         ],
-        '2' => [
-            'title' => 'OPTIMIZAMOS',
-            'text' => 'Incrementamos tus ventas online mediante una actualización de tu texto de marketing, optimizando llamadas a la acción, y creando canales de tráfico medibles.'
+        '2'     => [
+            'title' => 'Desarrollo de aplicaciones móviles',
+            'text'  => 'Producimos aplicaciones móviles altamente usables y potentes que resuelven problemas de negocio, atraen y fidelizan usuarios, y refuerzan la marca.
+            Construimos aplicaciones nativas e híbridas tanto para Android como para iOS.',
         ],
-        '3' => [
-            'title' => 'SEGUIMOS',
-            'text' => 'Creamos KPIs atados a tus objetivos y te enseñamos como seguir tu progreso y tus logros con métricas.'
-        ],
-        '4' => [
-            'title' => 'ARREGLAMOS',
-            'text' => 'Corregimos errores y código mal escrito, especialmente el derivado de tu anterior equipo de desarollo.'
-        ],
-        '5' => [
-            'title' => 'MEJORAMOS',
-            'text' => 'Trabajamos en o mantenemos proyectos existentes y legacy para agencias de marketing y creativos que necesitan un apoyo extra de recursos humanos o expertise.'
-        ],
-        'cta' => 'Envíanos hoy un email'
+        'cta'   => 'Envíanos hoy un email',
     ],
-    'blog' => [
+    'blog'      => [
         'title' => 'Lo último del Blog',
-        'cta' => 'Visita el Blog!'
+        'cta'   => 'Visita el Blog!',
     ],
-    'contact' => [
-        'cta' => 'Contacto',
-        'title' => 'Hacenos tu consulta!',
-        'subtitle' => 'Envianos tu consulta y te contestamos en seguida!',
-        'form' => [
-            'subject' => 'Asunto',
-            'message' => 'Contanos un poco de tu proyecto o idea y qué crees que necesitas',
-            'email' => 'Email',
-            'name' => 'Nombre',
+    'contact'   => [
+        'cta'      => 'Contacto',
+        'title'    => 'Haznos tu consulta!',
+        'subtitle' => 'Envianos tu consulta y te contestaremos en seguida!',
+        'form'     => [
+            'subject'       => 'Asunto',
+            'message'       => 'Cuentanos un poco de tu proyecto o idea y qué crees que necesitas',
+            'email'         => 'Email',
+            'name'          => 'Nombre',
             'message-title' => 'Tu consulta',
-            'cta' => 'Enviar!'
+            'cta'           => 'Enviar!',
         ],
     ],
     'portfolio' => [
         'title' => 'Nuestros Trabajos',
-        'all' => 'Todos',
-    ]
+        'all'   => 'Todos',
+    ],
+    'footer' => 'Desarrollo profesional de software',
 ];
