@@ -9,7 +9,7 @@
         "laravel/framework": "5.4.*",
         "intervention/image": "^2.3",
         "greggilbert/recaptcha": "^2.1",
-        "guzzlehttp/guzzle": "~4.2.4",
+        "guzzlehttp/guzzle": "6.*",
         "barryvdh/laravel-ide-helper": "^2.2",
         "approached/laravel-image-optimizer": "^2.2",
         "willvincent/feeds": "^1.1"
