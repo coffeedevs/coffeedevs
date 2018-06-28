@@ -3,17 +3,17 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoffeeDevs - Desarrollo Web</title>
+    <title>CoffeeDevs - @lang('web.hero.sub')</title>
     <meta name="description"
-          content="Desarrollo de aplicaciones web, sitios institucionales e E-Commerce. Dale a tu negocio o marca la presencia digital que se merece!">
+          content="{{ trans('web.meta.description') }}">
     <meta name="author" content="CoffeeDevs">
 
-    <meta property="og:title" content="Desarrollo de aplicaciones web y mobile"/>
+    <meta property="og:title" content="@lang('web.hero.sub')"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="http://coffeedevs.com/"/>
     <meta property="og:image" content="http://coffeedevs.com/images/portada2.jpg"/>
     <meta property="og:description"
-          content="Desarrollo de aplicaciones web, sitios institucionales e E-Commerce. Dale a tu negocio o marca la presencia digital que se merece!"/>
+          content="{{ trans('web.meta.description') }}"/>
 
     <link rel="dns-prefetch" href="//www.google.com">
     <link rel="dns-prefetch" href="//coffeedevs.com">
