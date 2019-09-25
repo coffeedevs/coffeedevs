@@ -12,7 +12,7 @@
                 <ul id="navigation" class="nav navbar-nav navbar-right">
                     <li><a href="#header" class="current">Home</a></li>
                     <li><a href="#features" class="smooth-scroll">@lang('web.features.title')</a></li>
-                    <li><a href="#portfolio" class="smooth-scroll">@lang('web.portfolio.title')</a></li>
+{{--                    <li><a href="#portfolio" class="smooth-scroll">@lang('web.portfolio.title')</a></li>--}}
                     <li><a href="#contact" class="smooth-scroll">@lang('web.contact.cta')</a></li>
                     <li><a href="http://blog.coffeedevs.com/" class="external">@lang('web.blog.cta')</a></li>
                     @if(config('app.locale') == 'es')
