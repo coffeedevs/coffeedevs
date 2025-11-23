@@ -50,8 +50,51 @@ All commands are run from the root of the project, from a terminal:
 
 ## 🌐 Deployment
 
-The built site (in `./dist/`) can be deployed to any static hosting service:
-- **Netlify** - Drop the `dist` folder or connect your repo
+### Deploy to Netlify (Recommended) 🎯
+
+This project is pre-configured for Netlify deployment with `netlify.toml` configuration.
+
+#### Option 1: Deploy from Git (Recommended)
+
+1. **Push your code to GitHub** (already done!)
+2. **Connect to Netlify:**
+   - Go to [netlify.com](https://netlify.com) and sign in
+   - Click "Add new site" → "Import an existing project"
+   - Choose GitHub and select the `coffeedevs` repository
+   - Select the branch: `claude/migrate-astro-simplify-contact-01UaTpMha4HYq1Mavs4aiNYh` (or main after merging)
+3. **Netlify will auto-detect the settings:**
+   - Build command: `npm run build` (from `netlify.toml`)
+   - Publish directory: `dist` (from `netlify.toml`)
+   - Node version: 18 (from `netlify.toml`)
+4. **Click "Deploy site"** - That's it! 🚀
+
+Netlify will automatically rebuild and deploy whenever you push changes to your repository.
+
+#### Option 2: Manual Deploy
+
+```bash
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Build the site
+npm run build
+
+# Deploy to Netlify
+netlify deploy --prod
+```
+
+#### What's Included in Netlify Configuration
+
+The `netlify.toml` file includes:
+- ✅ Build command and output directory
+- ✅ Node.js version specification (v18)
+- ✅ Security headers (X-Frame-Options, XSS Protection, etc.)
+- ✅ Asset caching rules (1 year for CSS, JS, images, fonts)
+- ✅ Redirect rules for proper routing
+
+### Other Deployment Options
+
+The built site (in `./dist/`) can also be deployed to:
 - **Vercel** - Auto-deploys from Git
 - **GitHub Pages** - Simple static hosting
 - **Cloudflare Pages** - Fast global CDN
