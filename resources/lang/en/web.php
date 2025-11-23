@@ -1,5 +1,8 @@
 <?php
 return [
+    'meta'      => [
+        'description' => 'CoffeeDevs is a custom software development agency focused on providing business solutions through technology. Our experience ranges from e-commerce through CRM\'s to mobile applications',
+    ],
     'hero'      => [
         'sub' => 'Professional software development',
         'cta' => 'Let\'s work together',
@@ -131,5 +134,5 @@ return [
         'title' => 'Our work',
         'all'   => 'All',
     ],
-    'footer' => 'Professional software development',
+    'footer'    => 'Professional software development',
 ];

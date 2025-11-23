@@ -1,5 +1,8 @@
 <?php
 return [
+    'meta'      => [
+        'description' => 'CoffeeDevs es una agencia de desarrollo de software personalizado enfocado en proveer soluciones de negocios a través de implementaciones tecnológicas. Nuestra experiencia abarca comercio electrónico, sistemas de gestión, plataformas y aplicaciones móviles.',
+    ],
     'hero'      => [
         'sub' => 'Desarrollo profesional de software',
         'cta' => 'Trabajemos juntos',

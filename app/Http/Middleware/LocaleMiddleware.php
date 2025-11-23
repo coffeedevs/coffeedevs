@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App;
 use Closure;
 
 class LocaleMiddleware
@@ -15,10 +16,9 @@ class LocaleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (session('locale')) {
-            app()->setLocale(session('locale'));
-            config(['app.locale' => session('locale')]);
-        }
+        $lang = session('locale') ?: substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
+        app()->setLocale($lang);
+        config(['app.locale' => $lang]);
 
         return $next($request);
     }
