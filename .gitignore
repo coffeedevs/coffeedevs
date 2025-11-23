@@ -5,3 +5,8 @@ Homestead.yaml
 Homestead.json
 .idea/
 .env
+
+# Astro
+dist/
+.astro/
+node_modules/
