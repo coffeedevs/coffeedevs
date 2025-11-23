@@ -20,21 +20,28 @@ This project has been migrated from Laravel to [Astro.build](https://astro.build
 ```
 coffeedevs/
 ├── src/
-│   ├── components/       # Reusable Astro components
+│   ├── components/          # Reusable Astro components
 │   │   ├── Header.astro
 │   │   ├── Hero.astro
 │   │   ├── Features.astro
 │   │   ├── Blog.astro
-│   │   ├── Contact.astro  # Simplified with mailto: link
+│   │   ├── Contact.astro    # Simplified with mailto: link
 │   │   └── Footer.astro
 │   ├── layouts/
-│   │   └── Layout.astro   # Main page layout
+│   │   └── Layout.astro     # Main page layout
 │   └── pages/
-│       └── index.astro    # Homepage
-├── public/               # Static assets (CSS, JS, images)
-├── astro.config.mjs      # Astro configuration
-├── package.json          # Dependencies
-└── tsconfig.json         # TypeScript config
+│       └── index.astro      # Homepage
+├── public/                  # Static assets (CSS, JS, images, fonts)
+│   ├── css/                # Stylesheets
+│   ├── js/                 # JavaScript files
+│   ├── images/             # Image assets
+│   ├── fonts/              # Web fonts
+│   └── _redirects          # Netlify redirects
+├── astro.config.mjs        # Astro configuration
+├── netlify.toml            # Netlify deployment config
+├── package.json            # NPM dependencies (Astro only!)
+├── tsconfig.json           # TypeScript config
+└── README-ASTRO.md         # This file
 ```
 
 ## 🧞 Commands
@@ -50,8 +57,51 @@ All commands are run from the root of the project, from a terminal:
 
 ## 🌐 Deployment
 
-The built site (in `./dist/`) can be deployed to any static hosting service:
-- **Netlify** - Drop the `dist` folder or connect your repo
+### Deploy to Netlify (Recommended) 🎯
+
+This project is pre-configured for Netlify deployment with `netlify.toml` configuration.
+
+#### Option 1: Deploy from Git (Recommended)
+
+1. **Push your code to GitHub** (already done!)
+2. **Connect to Netlify:**
+   - Go to [netlify.com](https://netlify.com) and sign in
+   - Click "Add new site" → "Import an existing project"
+   - Choose GitHub and select the `coffeedevs` repository
+   - Select the branch: `claude/migrate-astro-simplify-contact-01UaTpMha4HYq1Mavs4aiNYh` (or main after merging)
+3. **Netlify will auto-detect the settings:**
+   - Build command: `npm run build` (from `netlify.toml`)
+   - Publish directory: `dist` (from `netlify.toml`)
+   - Node version: 18 (from `netlify.toml`)
+4. **Click "Deploy site"** - That's it! 🚀
+
+Netlify will automatically rebuild and deploy whenever you push changes to your repository.
+
+#### Option 2: Manual Deploy
+
+```bash
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Build the site
+npm run build
+
+# Deploy to Netlify
+netlify deploy --prod
+```
+
+#### What's Included in Netlify Configuration
+
+The `netlify.toml` file includes:
+- ✅ Build command and output directory
+- ✅ Node.js version specification (v18)
+- ✅ Security headers (X-Frame-Options, XSS Protection, etc.)
+- ✅ Asset caching rules (1 year for CSS, JS, images, fonts)
+- ✅ Redirect rules for proper routing
+
+### Other Deployment Options
+
+The built site (in `./dist/`) can also be deployed to:
 - **Vercel** - Auto-deploys from Git
 - **GitHub Pages** - Simple static hosting
 - **Cloudflare Pages** - Fast global CDN
@@ -78,14 +128,16 @@ All original styles are preserved in the `public/css/` directory:
 - `animate.css` - Animation library
 - `pace-flash.css` - Page loading indicator
 
-## 📝 Original Laravel Files
+## 🧹 Clean Codebase
 
-The original Laravel files are still in the repository for reference:
-- `resources/views/` - Original Blade templates
-- `app/` - Laravel application code
-- `config/` - Laravel configuration
+All PHP/Laravel dependencies and files have been removed:
+- ✅ Removed `composer.json` and `composer.lock`
+- ✅ Removed Laravel directories (`app/`, `resources/`, `config/`, etc.)
+- ✅ Removed build tools (`gulpfile.js`, `webpack.config.js`)
+- ✅ Removed PHP files (`artisan`, `server.php`, `phpunit.xml`)
+- ✅ Kept only `public/` (static assets) and `src/` (Astro source)
 
-These can be safely removed once the migration is verified.
+The project is now a clean, modern Astro site with no PHP dependencies!
 
 ## 🔗 Learn More
 
