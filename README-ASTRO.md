@@ -20,21 +20,28 @@ This project has been migrated from Laravel to [Astro.build](https://astro.build
 ```
 coffeedevs/
 ├── src/
-│   ├── components/       # Reusable Astro components
+│   ├── components/          # Reusable Astro components
 │   │   ├── Header.astro
 │   │   ├── Hero.astro
 │   │   ├── Features.astro
 │   │   ├── Blog.astro
-│   │   ├── Contact.astro  # Simplified with mailto: link
+│   │   ├── Contact.astro    # Simplified with mailto: link
 │   │   └── Footer.astro
 │   ├── layouts/
-│   │   └── Layout.astro   # Main page layout
+│   │   └── Layout.astro     # Main page layout
 │   └── pages/
-│       └── index.astro    # Homepage
-├── public/               # Static assets (CSS, JS, images)
-├── astro.config.mjs      # Astro configuration
-├── package.json          # Dependencies
-└── tsconfig.json         # TypeScript config
+│       └── index.astro      # Homepage
+├── public/                  # Static assets (CSS, JS, images, fonts)
+│   ├── css/                # Stylesheets
+│   ├── js/                 # JavaScript files
+│   ├── images/             # Image assets
+│   ├── fonts/              # Web fonts
+│   └── _redirects          # Netlify redirects
+├── astro.config.mjs        # Astro configuration
+├── netlify.toml            # Netlify deployment config
+├── package.json            # NPM dependencies (Astro only!)
+├── tsconfig.json           # TypeScript config
+└── README-ASTRO.md         # This file
 ```
 
 ## 🧞 Commands
@@ -121,14 +128,16 @@ All original styles are preserved in the `public/css/` directory:
 - `animate.css` - Animation library
 - `pace-flash.css` - Page loading indicator
 
-## 📝 Original Laravel Files
+## 🧹 Clean Codebase
 
-The original Laravel files are still in the repository for reference:
-- `resources/views/` - Original Blade templates
-- `app/` - Laravel application code
-- `config/` - Laravel configuration
+All PHP/Laravel dependencies and files have been removed:
+- ✅ Removed `composer.json` and `composer.lock`
+- ✅ Removed Laravel directories (`app/`, `resources/`, `config/`, etc.)
+- ✅ Removed build tools (`gulpfile.js`, `webpack.config.js`)
+- ✅ Removed PHP files (`artisan`, `server.php`, `phpunit.xml`)
+- ✅ Kept only `public/` (static assets) and `src/` (Astro source)
 
-These can be safely removed once the migration is verified.
+The project is now a clean, modern Astro site with no PHP dependencies!
 
 ## 🔗 Learn More
 
