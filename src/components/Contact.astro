@@ -1,25 +1,53 @@
-<section id="contact" class="section section-center section-contact">
-  <div class="container">
-    <h1 class="section-title">
-      <span id="span-consulta">Send us your questions!</span>
-    </h1>
-    <div class="row">
-      <div class="elegir-contacto col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+<section id="contact" class="py-24 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+        Send us your questions!
+      </h2>
+      <p class="text-xl text-gray-300 mb-8">
         We'll answer right away!
-      </div>
+      </p>
     </div>
-    <div class="contacto-simple" id="contacto-simple">
-      <div class="main-action" style="margin-top: 2rem;">
+
+    <!-- Contact Card -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-center">
+      <div class="max-w-md mx-auto">
+        <!-- Icon -->
+        <div class="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+
+        <!-- Email Address -->
+        <p class="text-gray-600 mb-6">
+          Ready to start your project? Get in touch with us
+        </p>
+
+        <!-- CTA Button -->
         <a
           href="mailto:contact@coffeedevs.com?subject=Project%20Inquiry"
-          class="btn btn-primary btn-lg"
-          style="font-size: 1.2rem; padding: 1rem 2.5rem;"
+          class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary to-secondary rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 transform mb-4"
         >
+          <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
           Talk to us
         </a>
-        <p style="margin-top: 1.5rem; color: #666;">
-          Click the button above to send us an email
-        </p>
+
+        <!-- Email Display -->
+        <div class="mt-6 pt-6 border-t border-gray-200">
+          <p class="text-sm text-gray-500 mb-2">Or email us directly at</p>
+          <a href="mailto:contact@coffeedevs.com" class="text-primary font-medium hover:text-secondary transition-colors">
+            contact@coffeedevs.com
+          </a>
+        </div>
       </div>
     </div>
   </div>

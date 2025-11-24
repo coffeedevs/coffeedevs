@@ -1,24 +1,84 @@
-<header id="header" class="site-header">
-  <nav id="navbar" class="site-navbar navbar navbar-static-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <i class="fa fa-bars"></i>
-        </button>
-        <h1 class="navbar-brand">
-          <img src="/images/logo.png" alt="Logo Coffeedevs" class="coffee-logo">
-          <a href="/">CoffeeDevs</a>
-        </h1>
+<header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3">
+        <img src="/images/logo.png" alt="CoffeeDevs Logo" class="h-10 w-10">
+        <a href="/" class="text-2xl font-bold text-gray-900 hover:text-primary transition-colors">
+          CoffeeDevs
+        </a>
       </div>
-      <div class="collapse navbar-collapse" id="navbar-collapse-1">
-        <ul id="navigation" class="nav navbar-nav navbar-right">
-          <li><a href="#header" class="current">Home</a></li>
-          <li><a href="#features" class="smooth-scroll">What we do</a></li>
-          <li><a href="#contact" class="smooth-scroll">Contact</a></li>
-          <li><a href="http://blog.coffeedevs.com/" class="external">Visit the Blog!</a></li>
-        </ul>
-      </div>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center space-x-8">
+        <li>
+          <a href="#header" class="text-gray-700 hover:text-primary font-medium transition-colors">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#features" class="text-gray-700 hover:text-primary font-medium transition-colors">
+            What we do
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="text-gray-700 hover:text-primary font-medium transition-colors">
+            Contact
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://blog.coffeedevs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-4 py-2 rounded-lg bg-primary text-white font-medium hover:bg-secondary transition-colors shadow-sm"
+          >
+            Visit the Blog
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <ul class="flex flex-col space-y-3">
+        <li>
+          <a href="#header" class="block py-2 text-gray-700 hover:text-primary font-medium transition-colors">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#features" class="block py-2 text-gray-700 hover:text-primary font-medium transition-colors">
+            What we do
+          </a>
+        </li>
+        <li>
+          <a href="#contact" class="block py-2 text-gray-700 hover:text-primary font-medium transition-colors">
+            Contact
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://blog.coffeedevs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block px-4 py-2 rounded-lg bg-primary text-white font-medium hover:bg-secondary transition-colors shadow-sm text-center"
+          >
+            Visit the Blog
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
 </header>
