@@ -6,6 +6,10 @@ export default {
       colors: {
         primary: '#f15f4c',
         secondary: '#e74430',
+        accent: '#a855f7',
+        'dark-bg': '#0a0a0a',
+        'dark-surface': '#1a1a1a',
+        'warm-brown': '#2d2416',
       },
     },
   },
