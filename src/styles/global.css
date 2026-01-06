@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Lato:wght@300;400;700&family=Open+Sans:wght@300;400;600;700&display=swap');
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --primary: oklch(0.505 0.213 259.5);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.635 0.163 283.5);
-  --muted: oklch(0.970 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --border: oklch(0.922 0 0);
-  --ring: oklch(0.505 0.213 259.5);
-  --radius: 0.5rem;
-  --font-sans: Inter, system-ui, -apple-system, sans-serif;
+  --background: #fff;
+  --foreground: #333;
+  --primary: #f15f4c;
+  --primary-dark: #e74430;
+  --primary-foreground: #fff;
+  --secondary: #f15f4c;
+  --muted: #f9f9f9;
+  --muted-foreground: #666;
+  --border: #e5e5e5;
+  --ring: #f15f4c;
+  --radius: 4px;
+  --font-sans: 'Open Sans', 'Lato', 'Raleway', system-ui, sans-serif;
+  --font-heading: 'Raleway', system-ui, sans-serif;
 }
 
 * {
@@ -30,6 +32,13 @@ body {
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
 }
 
 /* Header / Navigation */
@@ -41,8 +50,8 @@ header {
   z-index: 50;
   background: var(--background);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(8px);
   height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 nav {
@@ -57,15 +66,22 @@ nav {
 
 nav a, nav button {
   font-size: 0.95rem;
+  font-family: var(--font-sans);
   transition: color 200ms ease-out;
   cursor: pointer;
   background: none;
   border: none;
   color: var(--foreground);
+  font-weight: 500;
 }
 
 nav a:hover, nav button:hover {
   color: var(--primary);
+}
+
+nav img {
+  height: 30px;
+  width: auto;
 }
 
 main {
@@ -74,7 +90,7 @@ main {
 
 /* Hero Section */
 section {
-  padding: 5rem 1.5rem;
+  padding: 4rem 1.5rem;
 }
 
 #fold {
@@ -84,9 +100,13 @@ section {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background: url('/images/bg1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
   text-align: center;
+  margin-top: 60px;
 }
 
 #fold::before {
@@ -96,65 +116,95 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/images/bg1.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  z-index: -1;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+#fold > div {
+  position: relative;
+  z-index: 2;
 }
 
 #fold h1 {
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 5rem);
   font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #fold h2 {
-  font-size: clamp(1.25rem, 4vw, 2rem);
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 4vw, 1.75rem);
   font-weight: 300;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   opacity: 0.95;
+  letter-spacing: 0.02em;
 }
 
 /* Section Title */
 .section-title {
-  font-size: 2.25rem;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 3rem;
   text-align: center;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  position: relative;
+  padding-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
 }
 
 /* Features Grid */
 #features {
   background: var(--muted);
+  padding: 5rem 1.5rem;
+}
+
+#features .section-title {
+  margin-bottom: 3rem;
 }
 
 #features .row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 3rem;
+  margin-bottom: 3rem;
 }
 
 .service {
   padding: 2rem;
-  border-radius: var(--radius);
-  transition: all 200ms ease-out;
-  border: 1px solid var(--border);
+  text-align: center;
+  transition: all 250ms ease-out;
+  border: none;
+  background: transparent;
 }
 
 .service:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-  border-color: var(--primary);
+  transform: translateY(-8px);
 }
 
 .service-icon {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .service-icon img {
@@ -164,48 +214,56 @@ section {
 }
 
 .service h2 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--foreground);
 }
 
 .service p {
   color: var(--muted-foreground);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 /* Blog Section */
 #blog {
   background: var(--muted);
+  padding: 5rem 1.5rem;
+}
+
+#blog .section-title {
+  margin-bottom: 3rem;
 }
 
 #blog .row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .premium-card {
   overflow: hidden;
   border-radius: var(--radius);
-  transition: all 200ms ease-out;
-  border: 1px solid var(--border);
+  transition: all 250ms ease-out;
+  border: none;
   background: var(--background);
   text-decoration: none;
   color: inherit;
   display: block;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .premium-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .premium-card > div:first-child {
   width: 100%;
-  height: 180px;
+  height: 200px;
   background-size: cover;
   background-position: center;
 }
@@ -215,23 +273,31 @@ section {
 }
 
 .premium-info h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  color: var(--foreground);
 }
 
 .premium-info time {
   font-size: 0.875rem;
   color: var(--muted-foreground);
+  font-weight: 400;
 }
 
 /* Contact Section */
 #contact {
   background: var(--background);
+  padding: 5rem 1.5rem;
+}
+
+#contact .section-title {
+  margin-bottom: 2rem;
 }
 
 .contacto-simple {
@@ -246,58 +312,67 @@ section {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
+  color: var(--foreground);
+  font-family: var(--font-heading);
 }
 
 .form-control {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   font-family: inherit;
   font-size: 1rem;
   transition: all 200ms ease-out;
+  background: var(--background);
+  color: var(--foreground);
 }
 
 .form-control:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(80, 85, 211, 0.1);
+  box-shadow: 0 0 0 3px rgba(241, 95, 76, 0.1);
 }
 
 .form-control:focus-visible {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(80, 85, 211, 0.1);
+  box-shadow: 0 0 0 3px rgba(241, 95, 76, 0.1);
 }
 
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   border: none;
   border-radius: var(--radius);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 150ms ease-out;
+  transition: all 200ms ease-out;
   text-decoration: none;
   white-space: nowrap;
+  font-family: var(--font-sans);
 }
 
 .btn-primary {
   background: var(--primary);
   color: var(--primary-foreground);
+  border: 2px solid var(--primary);
 }
 
 .btn-primary:hover {
-  background: oklch(0.46 0.213 259.5);
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(241, 95, 76, 0.3);
 }
 
 .btn-lg {
-  padding: 1rem 2rem;
-  font-size: 1.05rem;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.1rem;
 }
 
 /* Alerts */
@@ -306,25 +381,26 @@ section {
   border-radius: var(--radius);
   margin-bottom: 1.5rem;
   border: 1px solid;
+  font-size: 0.95rem;
 }
 
 .alert-success {
-  background: oklch(0.92 0.059 149.4);
-  border-color: oklch(0.85 0.059 149.4);
-  color: oklch(0.3 0.059 149.4);
+  background: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
 }
 
 .alert-danger {
-  background: oklch(0.92 0.084 27);
-  border-color: oklch(0.85 0.084 27);
-  color: oklch(0.32 0.084 27);
+  background: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
 }
 
 /* Footer */
 footer {
-  background: oklch(0.145 0 0);
-  color: oklch(0.556 0 0);
-  padding: 2rem 1.5rem;
+  background: #333;
+  color: #999;
+  padding: 3rem 1.5rem;
   text-align: center;
   margin-top: 4rem;
   border-top: 1px solid var(--border);
@@ -332,33 +408,63 @@ footer {
 
 footer p {
   margin: 0;
+  font-size: 0.95rem;
 }
 
 /* Responsive */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1.25rem;
+  }
+
+  #fold h1 {
+    font-size: 2.5rem;
+  }
+
+  #fold h2 {
+    font-size: 1.25rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  #features .row,
+  #blog .row {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
   nav {
     padding: 0 1rem;
   }
 
   section {
-    padding: 3rem 1rem;
+    padding: 2.5rem 1rem;
+  }
+
+  #fold {
+    min-height: 80vh;
   }
 
   #fold h1 {
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
 
   #fold h2 {
     font-size: 1.1rem;
+    margin-bottom: 1.5rem;
   }
 
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
   }
 
-  #fold,
-  #features .row,
-  #blog .row {
-    gap: 1.5rem;
+  .btn-lg {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
   }
 }

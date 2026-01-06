@@ -24,8 +24,8 @@ const currentLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
     <!-- Header/Navigation -->
     <header>
       <nav>
-        <a href="/" style="display: flex; align-items: center;">
-          <img src="/images/logo.png" alt="CoffeeDevs" style="height: 30px; width: auto;" />
+        <a href="/" style="display: flex; align-items: center; gap: 0.5rem;">
+          <img src="/images/logo.png" alt="CoffeeDevs" />
         </a>
         
         <div style="display: flex; align-items: center; gap: 2rem;">
@@ -36,11 +36,14 @@ const currentLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
           <!-- Language Selector -->
           <select 
             style="
-              border: none;
-              background: transparent;
+              border: 1px solid #e5e5e5;
+              background: white;
+              padding: 0.5rem;
+              border-radius: 4px;
               font-family: inherit;
               cursor: pointer;
               font-size: 0.95rem;
+              color: #333;
             "
             onchange={`window.location.href = this.value`}
             value={currentLocale === 'en' ? '/en' : '/'}
