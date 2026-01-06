@@ -19,33 +19,27 @@ export default function Features({ locale }: FeaturesProps) {
   };
 
   return (
-    <section id="features" className="section section-center section-features" style={{ padding: '80px 0', backgroundColor: '#f9f9f9' }}>
-      <div className="container">
-        <h1 className="section-title text-center" style={{ marginBottom: '60px' }}>
-          <span>{locale === 'es' ? 'Nuestros Servicios' : 'Our Services'}</span>
-        </h1>
-        
-        <div className="row wow fadeInUp">
-          {features[locale].map((feature, idx) => (
-            <div key={idx} className="col-md-4" style={{ marginBottom: '30px', textAlign: 'center' }}>
-              <div className="service">
-                <div className="service-icon" style={{ marginBottom: '20px' }}>
-                  <img src={feature.icon} alt={feature.title} style={{ height: '80px', width: 'auto' }} />
-                </div>
-                <h2 style={{ fontSize: '20px', marginBottom: '15px' }}>{feature.title}</h2>
-                <p style={{ color: '#666', fontSize: '16px', lineHeight: '1.6' }}>
-                  {feature.description}
-                </p>
+    <section id="features">
+      <h1 className="section-title">{locale === 'es' ? 'Nuestros Servicios' : 'Our Services'}</h1>
+      
+      <div className="row">
+        {features[locale].map((feature, idx) => (
+          <div key={idx}>
+            <div className="service">
+              <div className="service-icon">
+                <img src={feature.icon} alt={feature.title} />
               </div>
+              <h2>{feature.title}</h2>
+              <p>{feature.description}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
 
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
-          <a href="#contact" className="btn btn-primary btn-lg">
-            {locale === 'es' ? 'Trabajemos juntos' : 'Let\'s work together'}
-          </a>
-        </div>
+      <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+        <a href="#contact" className="btn btn-primary btn-lg">
+          {locale === 'es' ? 'Trabajemos juntos' : 'Let\'s work together'}
+        </a>
       </div>
     </section>
   );
