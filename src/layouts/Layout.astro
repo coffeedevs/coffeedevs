@@ -1,0 +1,68 @@
+---
+import '@styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Coffee Devs - Comunidad de Desarrollo' } = Astro.props;
+const currentLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+---
+
+<!DOCTYPE html>
+<html lang={currentLocale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title} | Coffee Devs</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  
+  <body class="font-sans text-gray-900 bg-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+      <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold text-coffee-900">Coffee Devs</a>
+        
+        <div class="flex gap-4 items-center">
+          <a href="/services" class="hover:text-coffee-900 transition">
+            {currentLocale === 'en' ? 'Services' : 'Servicios'}
+          </a>
+          
+          <!-- Language Switch -->
+          <select 
+            class="text-sm border rounded px-2 py-1"
+            onchange={`window.location.href = this.value`}
+            value={currentLocale === 'en' ? '/en' : '/'}
+          >
+            <option value="/">Español</option>
+            <option value="/en">English</option>
+          </select>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-20">
+      <div class="max-w-7xl mx-auto px-4 py-12">
+        <p class="text-center text-gray-400">
+          &copy; 2024 Coffee Devs. {currentLocale === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

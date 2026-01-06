@@ -1,0 +1,16 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.tsx';
+import Features from '@components/Features.tsx';
+import Blog from '@components/Blog.tsx';
+import Contact from '@components/Contact.tsx';
+
+const locale = 'es';
+---
+
+<Layout title={locale === 'es' ? 'Inicio' : 'Home'}>
+  <Hero client:load locale={locale} />
+  <Features client:load locale={locale} />
+  <Blog client:load locale={locale} />
+  <Contact client:load locale={locale} />
+</Layout>
