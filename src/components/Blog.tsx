@@ -8,6 +8,7 @@ export interface BlogPost {
   title: string;
   link: string;
   pubDate: string;
+  image?: string;
 }
 
 export default function Blog({ locale }: BlogProps) {
@@ -34,7 +35,13 @@ export default function Blog({ locale }: BlogProps) {
             const title = item.querySelector('title')?.textContent || '';
             const link = item.querySelector('link')?.textContent || '';
             const pubDate = item.querySelector('pubDate')?.textContent || '';
-            blogPosts.push({ title, link, pubDate });
+            
+            // Try to extract image from content
+            const content = item.querySelector('description')?.textContent || '';
+            const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+            const image = imgMatch ? imgMatch[1] : '/images/bg-pattern.png';
+            
+            blogPosts.push({ title, link, pubDate, image });
           }
         });
         
@@ -49,48 +56,79 @@ export default function Blog({ locale }: BlogProps) {
     fetchBlog();
   }, []);
 
-  const title = locale === 'es' ? 'Blog Reciente' : 'Recent Blog';
-
-  if (loading) {
-    return (
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">{title}</h2>
-          <p className="text-center text-gray-600">
-            {locale === 'es' ? 'Cargando posts...' : 'Loading posts...'}
-          </p>
-        </div>
-      </section>
-    );
-  }
+  const title = locale === 'es' ? 'Blog' : 'Blog';
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">{title}</h2>
+    <section id="blog" className="section section-center section-features" style={{ padding: '80px 0', backgroundColor: '#f9f9f9' }}>
+      <div className="container">
+        <h1 className="section-title" style={{ marginBottom: '60px' }}>
+          <span>{title}</span>
+        </h1>
         
-        {posts.length > 0 ? (
-          <div className="grid md:grid-cols-3 gap-8">
+        {loading ? (
+          <p style={{ color: '#666', marginBottom: '40px' }}>
+            {locale === 'es' ? 'Cargando posts...' : 'Loading posts...'}
+          </p>
+        ) : posts.length > 0 ? (
+          <div className="row wow bounceInUp">
             {posts.map((post, idx) => (
               <a 
                 key={idx}
-                href={post.link} 
-                target="_blank" 
+                href={post.link}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition hover:text-blue-600"
+                style={{ textDecoration: 'none', color: 'inherit' }}
               >
-                <h3 className="font-bold mb-2 line-clamp-2">{post.title}</h3>
-                <p className="text-sm text-gray-500">
-                  {new Date(post.pubDate).toLocaleDateString(locale === 'es' ? 'es-ES' : 'en-US')}
-                </p>
+                <div className="col-md-4" style={{ marginBottom: '30px' }}>
+                  <div className="premium-card" style={{
+                    backgroundColor: '#fff',
+                    borderRadius: '4px',
+                    overflow: 'hidden',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-5px)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
+                  }}>
+                    <div style={{
+                      height: '180px',
+                      width: '100%',
+                      backgroundImage: `url(${post.image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}></div>
+                    <div className="premium-info" style={{ padding: '20px' }}>
+                      <header>
+                        <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '10px', color: '#333' }}>
+                          {post.title}
+                        </h3>
+                        <time style={{ fontSize: '12px', color: '#999' }}>
+                          {new Date(post.pubDate).toLocaleDateString(locale === 'es' ? 'es-ES' : 'en-US')}
+                        </time>
+                      </header>
+                    </div>
+                  </div>
+                </div>
               </a>
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-600">
+          <p style={{ color: '#666' }}>
             {locale === 'es' ? 'Sin posts disponibles.' : 'No posts available.'}
           </p>
         )}
+
+        <div style={{ marginTop: '40px' }}>
+          <a href="https://blog.coffeedevs.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+            {locale === 'es' ? 'Ver más posts' : 'View more posts'}
+          </a>
+        </div>
       </div>
     </section>
   );
