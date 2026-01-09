@@ -4,7 +4,7 @@ export interface ContactProps {
   locale: 'es' | 'en';
 }
 
-export default function Contact({ locale }: ContactProps) {
+export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -15,7 +15,7 @@ export default function Contact({ locale }: ContactProps) {
     setError('');
 
     const formData = new FormData(e.currentTarget);
-    
+
     try {
       const response = await fetch('https://formspree.io/f/xyzpqwer', {
         method: 'POST',
@@ -28,88 +28,63 @@ export default function Contact({ locale }: ContactProps) {
         (e.target as HTMLFormElement).reset();
         setTimeout(() => setSubmitted(false), 5000);
       } else {
-        setError(locale === 'es' ? 'Error al enviar' : 'Error sending');
+        setError('Error sending');
       }
     } catch (err) {
-      setError(locale === 'es' ? 'Error al enviar' : 'Error sending');
+      setError('Error sending');
     } finally {
       setLoading(false);
     }
   };
 
-  const labels = {
-    es: {
-      title: 'Contacto',
-      subtitle: 'Cuéntanos sobre tu proyecto',
-      subject: 'Asunto',
-      name: 'Nombre',
-      email: 'Email',
-      message: 'Mensaje',
-      submit: 'Enviar',
-      success: '¡Gracias! Tu mensaje fue enviado.',
-    },
-    en: {
-      title: 'Contact',
-      subtitle: 'Tell us about your project',
-      subject: 'Subject',
-      name: 'Name',
-      email: 'Email',
-      message: 'Message',
-      submit: 'Send',
-      success: 'Thank you! Your message was sent.',
-    }
-  };
-
-  const text = labels[locale];
-
   return (
     <section id="contact">
-      <h1 className="section-title">{text.title}</h1>
+      <h1 className="section-title">Get in Touch</h1>
       <p style={{ textAlign: 'center', color: 'var(--muted-foreground)', marginBottom: '2rem' }}>
-        {text.subtitle}
+        Have questions about our apps or interested in partnering with us? We'd love to hear from you!
       </p>
 
       <div className="contacto-simple">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>{text.subject}</label>
+            <label>Subject</label>
             <input
               type="text"
               name="subject"
               className="form-control"
-              placeholder={text.subject}
+              placeholder="How can we help?"
               required
             />
           </div>
 
           <div className="form-group">
-            <label>{text.name}</label>
+            <label>Name</label>
             <input
               type="text"
               name="name"
               className="form-control"
-              placeholder={text.name}
+              placeholder="Your name"
               required
             />
           </div>
 
           <div className="form-group">
-            <label>{text.email}</label>
+            <label>Email</label>
             <input
               type="email"
               name="email"
               className="form-control"
-              placeholder={text.email}
+              placeholder="your@email.com"
               required
             />
           </div>
 
           <div className="form-group">
-            <label>{text.message}</label>
+            <label>Message</label>
             <textarea
               name="message"
               className="form-control"
-              placeholder={text.message}
+              placeholder="Your message"
               rows={5}
               required
             ></textarea>
@@ -117,7 +92,7 @@ export default function Contact({ locale }: ContactProps) {
 
           {submitted && (
             <div className="alert alert-success">
-              ✓ {text.success}
+              ✓ Thank you! Your message was sent.
             </div>
           )}
 
@@ -133,7 +108,7 @@ export default function Contact({ locale }: ContactProps) {
               disabled={loading}
               className="btn btn-primary btn-lg"
             >
-              {loading ? '...' : text.submit}
+              {loading ? '...' : 'Send Message'}
             </button>
           </div>
         </form>

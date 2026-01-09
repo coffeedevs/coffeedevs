@@ -6,12 +6,11 @@ export interface Props {
   description?: string;
 }
 
-const { title, description = 'CoffeeDevs - Desarrollo profesional de software' } = Astro.props;
-const currentLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+const { title, description = 'CoffeeDevs - Professional software development' } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang={currentLocale}>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,28 +28,9 @@ const currentLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
         </a>
         
         <div style="display: flex; align-items: center; gap: 2rem;">
-          <a href="/services">{currentLocale === 'en' ? 'Services' : 'Servicios'}</a>
-          <a href="/#blog">{currentLocale === 'en' ? 'Blog' : 'Blog'}</a>
-          <a href="/#contact">{currentLocale === 'en' ? 'Contact' : 'Contacto'}</a>
-          
-          <!-- Language Selector -->
-          <select 
-            style="
-              border: 1px solid #e5e5e5;
-              background: white;
-              padding: 0.5rem;
-              border-radius: 4px;
-              font-family: inherit;
-              cursor: pointer;
-              font-size: 0.95rem;
-              color: #333;
-            "
-            onchange={`window.location.href = this.value`}
-            value={currentLocale === 'en' ? '/en' : '/'}
-          >
-            <option value="/">Español</option>
-            <option value="/en">English</option>
-          </select>
+          <a href="/services">Services</a>
+          <a href="/#blog">Blog</a>
+          <a href="/#contact">Contact</a>
         </div>
       </nav>
     </header>
@@ -63,7 +43,7 @@ const currentLocale = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
     <!-- Footer -->
     <footer>
       <p>
-        &copy; 2024 CoffeeDevs. {currentLocale === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}
+        &copy; 2024 CoffeeDevs. All rights reserved.
       </p>
     </footer>
 

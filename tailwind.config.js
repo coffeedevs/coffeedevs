@@ -11,8 +11,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Open Sans', 'sans-serif'],
-        display: ['Gotham Rounded', 'sans-serif'],
+        sans: ['Gotham Rounded', 'Open Sans', 'sans-serif'],
+        display: ['Gotham Rounded', 'Raleway', 'sans-serif'],
       }
     },
   },

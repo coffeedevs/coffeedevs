@@ -1,4 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Lato:wght@300;400;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Lato:wght@300;400;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+@font-face {
+  font-family: 'Gotham Rounded';
+  src: url('/fonts/Gotham Rounded Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham Rounded';
+  src: url('/fonts/Gotham Rounded Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --background: #fff;
@@ -12,8 +28,8 @@
   --border: #e5e5e5;
   --ring: #f15f4c;
   --radius: 4px;
-  --font-sans: 'Open Sans', 'Lato', 'Raleway', system-ui, sans-serif;
-  --font-heading: 'Raleway', system-ui, sans-serif;
+  --font-sans: 'Gotham Rounded', 'Open Sans', 'Lato', system-ui, sans-serif;
+  --font-heading: 'Gotham Rounded', 'Raleway', system-ui, sans-serif;
 }
 
 * {
@@ -36,7 +52,12 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
 }
@@ -49,7 +70,7 @@ header {
   right: 0;
   z-index: 50;
   background: var(--background);
-  border-bottom: 1px solid var(--border);
+  /* border-bottom: 1px solid var(--border); REMOVED */
   height: 60px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -64,9 +85,10 @@ nav {
   justify-content: space-between;
 }
 
-nav a, nav button {
+nav a,
+nav button {
   font-size: 0.95rem;
-  font-family: var(--font-sans);
+  font-family: 'Raleway', var(--font-sans);
   transition: color 200ms ease-out;
   cursor: pointer;
   background: none;
@@ -75,7 +97,8 @@ nav a, nav button {
   font-weight: 500;
 }
 
-nav a:hover, nav button:hover {
+nav a:hover,
+nav button:hover {
   color: var(--primary);
 }
 
@@ -84,9 +107,7 @@ nav img {
   width: auto;
 }
 
-main {
-  padding-top: 60px;
-}
+/* main { padding-top: 60px; REMOVED } */
 
 /* Hero Section */
 section {
@@ -98,6 +119,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   position: relative;
   overflow: hidden;
   background: url('/images/bg1.jpg');
@@ -105,8 +127,24 @@ section {
   background-position: center;
   background-attachment: fixed;
   color: white;
-  text-align: center;
-  margin-top: 60px;
+}
+
+#fold h1 {
+  font-family: 'Raleway', var(--font-heading);
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-transform: none;
+  /* User: "CoffeeDevs instead of full uppercase" */
+  letter-spacing: -2px;
+}
+
+#fold h2 {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(1rem, 4vw, 1.75rem);
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
 }
 
 #fold::before {
@@ -120,29 +158,13 @@ section {
   z-index: 1;
 }
 
-#fold > div {
+#fold>div {
   position: relative;
   z-index: 2;
 }
 
-#fold h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 8vw, 5rem);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
 
-#fold h2 {
-  font-family: var(--font-sans);
-  font-size: clamp(1.125rem, 4vw, 1.75rem);
-  font-weight: 300;
-  margin-bottom: 2.5rem;
-  opacity: 0.95;
-  letter-spacing: 0.02em;
-}
+/* End of Hero Section */
 
 /* Section Title */
 .section-title {
@@ -261,7 +283,7 @@ section {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.premium-card > div:first-child {
+.premium-card>div:first-child {
   width: 100%;
   height: 200px;
   background-size: cover;
@@ -279,6 +301,7 @@ section {
   margin-bottom: 0.75rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   color: var(--foreground);

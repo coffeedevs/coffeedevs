@@ -11,7 +11,7 @@ export interface BlogPost {
   image?: string;
 }
 
-export default function Blog({ locale }: BlogProps) {
+export default function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,11 +22,11 @@ export default function Blog({ locale }: BlogProps) {
           headers: { 'Accept': 'application/rss+xml, application/xml, text/xml' }
         });
         const text = await response.text();
-        
+
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(text, 'text/xml');
         const items = xmlDoc.querySelectorAll('item');
-        
+
         const blogPosts: BlogPost[] = [];
         items.forEach((item, idx) => {
           if (idx < 3) {
@@ -36,11 +36,11 @@ export default function Blog({ locale }: BlogProps) {
             const content = item.querySelector('description')?.textContent || '';
             const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
             const image = imgMatch ? imgMatch[1] : '/images/bg-pattern.png';
-            
+
             blogPosts.push({ title, link, pubDate, image });
           }
         });
-        
+
         setPosts(blogPosts);
       } catch (error) {
         console.error('Error fetching blog:', error);
@@ -54,16 +54,16 @@ export default function Blog({ locale }: BlogProps) {
 
   return (
     <section id="blog">
-      <h1 className="section-title">{locale === 'es' ? 'Blog' : 'Blog'}</h1>
-      
+      <h1 className="section-title">Blog</h1>
+
       {loading ? (
         <p style={{ textAlign: 'center', color: 'var(--muted-foreground)' }}>
-          {locale === 'es' ? 'Cargando posts...' : 'Loading posts...'}
+          Loading posts...
         </p>
       ) : posts.length > 0 ? (
         <div className="row">
           {posts.map((post, idx) => (
-            <a 
+            <a
               key={idx}
               href={post.link}
               target="_blank"
@@ -79,7 +79,7 @@ export default function Blog({ locale }: BlogProps) {
                 <div className="premium-info">
                   <h3>{post.title}</h3>
                   <time>
-                    {new Date(post.pubDate).toLocaleDateString(locale === 'es' ? 'es-ES' : 'en-US')}
+                    {new Date(post.pubDate).toLocaleDateString('en-US')}
                   </time>
                 </div>
               </div>
@@ -88,13 +88,13 @@ export default function Blog({ locale }: BlogProps) {
         </div>
       ) : (
         <p style={{ textAlign: 'center', color: 'var(--muted-foreground)' }}>
-          {locale === 'es' ? 'Sin posts disponibles.' : 'No posts available.'}
+          No posts available.
         </p>
       )}
 
       <div style={{ textAlign: 'center', marginTop: '2rem' }}>
         <a href="https://blog.coffeedevs.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-          {locale === 'es' ? 'Ver más posts' : 'View more posts'}
+          View more posts
         </a>
       </div>
     </section>

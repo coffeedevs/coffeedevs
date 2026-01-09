@@ -4,26 +4,19 @@ export interface FeaturesProps {
   locale: 'es' | 'en';
 }
 
-export default function Features({ locale }: FeaturesProps) {
-  const features = {
-    es: [
-      { icon: '/images/custom.png', title: 'Desarrollo Personalizado', description: 'Soluciones a medida para tus necesidades específicas' },
-      { icon: '/images/design.png', title: 'Desarrollo Web', description: 'Aplicaciones web modernas y escalables' },
-      { icon: '/images/mobile.png', title: 'Desarrollo Móvil', description: 'Aplicaciones iOS y Android de alta calidad' },
-    ],
-    en: [
-      { icon: '/images/custom.png', title: 'Custom Development', description: 'Solutions tailored to your specific needs' },
-      { icon: '/images/design.png', title: 'Web Development', description: 'Modern and scalable web applications' },
-      { icon: '/images/mobile.png', title: 'Mobile Development', description: 'High-quality iOS and Android apps' },
-    ]
-  };
+export default function Features() {
+  const features = [
+    { icon: '/images/custom.png', title: "Goal-Oriented", description: "Our app is designed to help you achieve your career goals, with features that guide you through your certification journey step by step." },
+    { icon: '/images/design.png', title: "User-Focused", description: "Every feature is crafted with your success in mind, ensuring you have everything you need to reach your full potential." },
+    { icon: '/images/mobile.png', title: "Continuous Growth", description: "We're constantly evolving our app to better support your journey, adding new features and content to help you stay ahead." },
+  ];
 
   return (
     <section id="features">
-      <h1 className="section-title">{locale === 'es' ? 'Nuestros Servicios' : 'Our Services'}</h1>
-      
+      <h1 className="section-title">Your Success is Our Mission</h1>
+
       <div className="row">
-        {features[locale].map((feature, idx) => (
+        {features.map((feature, idx) => (
           <div key={idx}>
             <div className="service">
               <div className="service-icon">
@@ -38,7 +31,7 @@ export default function Features({ locale }: FeaturesProps) {
 
       <div style={{ textAlign: 'center', marginTop: '2rem' }}>
         <a href="#contact" className="btn btn-primary btn-lg">
-          {locale === 'es' ? 'Trabajemos juntos' : 'Let\'s work together'}
+          Start Your Journey
         </a>
       </div>
     </section>
