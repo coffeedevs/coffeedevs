@@ -4,11 +4,15 @@ import Hero from '@components/Hero.tsx';
 import Features from '@components/Features.tsx';
 import Blog from '@components/Blog.tsx';
 import Contact from '@components/Contact.tsx';
+import { getLatestBlogPosts } from '@utils/rss';
+
+const locale = 'es';
+const posts = await getLatestBlogPosts(5);
 ---
 
-<Layout title="Home">
-  <Hero client:load />
-  <Features client:load />
-  <Blog client:load />
-  <Contact client:load />
+<Layout locale={locale}>
+  <Hero locale={locale} />
+  <Features locale={locale} />
+  <Blog locale={locale} posts={posts} />
+  <Contact locale={locale} />
 </Layout>

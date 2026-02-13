@@ -1,19 +1,22 @@
 import React from 'react';
+import { siteCopy, type SiteLocale } from '@utils/siteCopy';
 
 export interface HeroProps {
-  locale: 'es' | 'en';
+  locale: SiteLocale;
 }
 
-export default function Hero() {
+export default function Hero({ locale }: HeroProps) {
+  const copy = siteCopy[locale];
+
   return (
     <section id="fold">
       <div style={{ position: 'relative', zIndex: 1 }}>
         <h1>CoffeeDevs</h1>
         <h2 style={{ maxWidth: '800px', margin: '0 auto 2.5rem' }}>
-          Achieve Your Dreams Through Tech. We're a team of passionate developers building tools that help you reach your goals and transform your career.
+          {copy.hero.subtitle}
         </h2>
         <a href="#contact" className="btn btn-primary btn-lg">
-          Start Your Journey
+          {copy.hero.cta}
         </a>
       </div>
     </section>
