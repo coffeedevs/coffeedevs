@@ -10,7 +10,7 @@ export interface Props {
 
 const { locale, title, description } = Astro.props;
 const copy = siteCopy[locale];
-const pageTitle = title ?? `CoffeeDevs - ${copy.hero.subtitle}`;
+const pageTitle = title ?? `CoffeeDevs - ${copy.hero.title}`;
 const pageDescription = description ?? copy.metaDescription;
 const canonicalPath = locale === 'es' ? '/' : '/en/';
 const canonicalUrl = `https://coffeedevs.com${canonicalPath}`;
@@ -26,45 +26,62 @@ const contactUrl = `${canonicalPath}#contact`;
     <meta name="description" content={pageDescription} />
     <title>{pageTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:title" content={copy.hero.subtitle} />
+    <meta property="og:title" content={copy.hero.title} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content="https://coffeedevs.com/images/portada2.jpg" />
     <meta property="og:description" content={pageDescription} />
     <link rel="icon" href="/favicon.ico" />
   </head>
-  
-  <body>
-    <!-- Header/Navigation -->
-    <header>
-      <nav>
-        <a href={canonicalPath} class="brand-link" aria-label="CoffeeDevs home">
-          <img src="/images/logo.png" alt="Logo Coffeedevs" class="coffee-logo" />
-          <span class="brand-name">CoffeeDevs</span>
+
+  <body class="bg-white text-gray-900 antialiased">
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg">
+      <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <a href={canonicalPath} class="flex items-center gap-2.5 no-underline">
+          <img src="/images/logo.png" alt="CoffeeDevs" class="h-9 w-auto" />
+          <span class="text-lg font-semibold tracking-tight text-gray-900">CoffeeDevs</span>
         </a>
-        
-        <div style="display: flex; align-items: center; gap: 2rem;">
-          <a href={canonicalPath}>{copy.nav.home}</a>
-          <a href={featuresUrl}>{copy.nav.features}</a>
-          <a href={contactUrl}>{copy.nav.contact}</a>
-          <a href="https://blog.coffeedevs.com/" rel="noopener noreferrer">{copy.nav.blog}</a>
-          <a href={copy.nav.localeSwitchHref}>{copy.nav.localeSwitch}</a>
+
+        <div class="hidden items-center gap-8 md:flex">
+          <a href={featuresUrl} class="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">{copy.nav.features}</a>
+          <a href="https://blog.coffeedevs.com/" rel="noopener noreferrer" class="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">{copy.nav.blog}</a>
+          <a href={contactUrl} class="rounded-full bg-gray-900 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-black">{copy.nav.contact}</a>
+          <a href={copy.nav.localeSwitchHref} class="text-sm font-medium text-gray-400 transition-colors hover:text-gray-900">{copy.nav.localeSwitch}</a>
         </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="flex items-center md:hidden" aria-label="Menu">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+          </svg>
+        </button>
       </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden border-t border-gray-100 bg-white px-6 pb-6 pt-4 md:hidden">
+        <div class="flex flex-col gap-4">
+          <a href={featuresUrl} class="text-base font-medium text-gray-600">{copy.nav.features}</a>
+          <a href="https://blog.coffeedevs.com/" rel="noopener noreferrer" class="text-base font-medium text-gray-600">{copy.nav.blog}</a>
+          <a href={contactUrl} class="text-base font-medium text-gray-600">{copy.nav.contact}</a>
+          <a href={copy.nav.localeSwitchHref} class="text-base font-medium text-gray-400">{copy.nav.localeSwitch}</a>
+        </div>
+      </div>
     </header>
 
-    <!-- Main Content -->
     <main>
       <slot />
     </main>
 
     <!-- Footer -->
-    <footer>
-      <p>
-        <a href="https://coffeedevs.com/" style="color: inherit; text-decoration: none;">
-          CoffeeDevs - {copy.footer}
-        </a>
-      </p>
+    <footer class="border-t border-gray-100 bg-white">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
+        <div class="flex items-center gap-2">
+          <img src="/images/logo.png" alt="CoffeeDevs" class="h-6 w-auto opacity-60" />
+          <span class="text-sm text-gray-400">CoffeeDevs</span>
+        </div>
+        <p class="text-sm text-gray-400">&copy; {new Date().getFullYear()} CoffeeDevs. {copy.footer}.</p>
+      </div>
     </footer>
 
     <script>
@@ -73,16 +90,24 @@ const contactUrl = `${canonicalPath}#contact`;
         anchor.addEventListener('click', function (e) {
           const href = this.getAttribute('href');
           if (!href || href.startsWith('http')) return;
-
           const url = new URL(href, window.location.origin);
           if (url.pathname !== window.location.pathname || !url.hash) return;
-
           const target = document.querySelector(url.hash);
           if (!target) return;
-
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth' });
         });
+      });
+
+      // Mobile menu toggle
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      btn?.addEventListener('click', () => {
+        menu?.classList.toggle('hidden');
+      });
+      // Close mobile menu on link click
+      menu?.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => menu?.classList.add('hidden'));
       });
     </script>
   </body>

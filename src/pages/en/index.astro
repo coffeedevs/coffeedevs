@@ -2,6 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/Hero.tsx';
 import Features from '@components/Features.tsx';
+import Process from '@components/Process.tsx';
 import Blog from '@components/Blog.tsx';
 import Contact from '@components/Contact.tsx';
 import { getLatestBlogPosts } from '@utils/rss';
@@ -13,6 +14,7 @@ const posts = await getLatestBlogPosts(5);
 <Layout locale={locale}>
   <Hero locale={locale} />
   <Features locale={locale} />
+  <Process locale={locale} />
   <Blog locale={locale} posts={posts} />
   <Contact locale={locale} />
 </Layout>
