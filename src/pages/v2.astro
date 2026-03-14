@@ -1,0 +1,343 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.tsx';
+import Features from '@components/Features.tsx';
+import Process from '@components/Process.tsx';
+import Blog from '@components/Blog.tsx';
+import Contact from '@components/Contact.tsx';
+import { getLatestBlogPosts } from '@utils/rss';
+
+const locale = 'es';
+const posts = await getLatestBlogPosts(5);
+---
+
+<Layout locale={locale}>
+  <div class="theme-v2">
+    <Hero locale={locale} />
+    <Features locale={locale} />
+    <Process locale={locale} />
+    <Blog locale={locale} posts={posts} />
+    <Contact locale={locale} />
+  </div>
+</Layout>
+
+<style is:global>
+  /* ============================================================
+     V2 "Dark Hero" Variant
+     Dark dramatic opening → clean light body → dark closing
+     ============================================================ */
+
+  /* --- Utility: gradient text mixin via class --- */
+  .theme-v2 .v2-gradient-text {
+    background: linear-gradient(135deg, #22d3ee, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ============================================================
+     HEADER (lives outside .theme-v2 in Layout, so target globally
+     when .theme-v2 is present on the page)
+     ============================================================ */
+
+  /* We detect the v2 page by the presence of .theme-v2 in body */
+  body:has(.theme-v2) header {
+    background: rgba(10, 10, 26, 0.85) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  }
+
+  body:has(.theme-v2) header nav a span.text-lg {
+    color: #f1f5f9 !important;
+  }
+
+  /* CoffeeDevs brand text */
+  body:has(.theme-v2) header nav > a > span {
+    color: #f1f5f9 !important;
+  }
+
+  /* Desktop nav links */
+  body:has(.theme-v2) header nav .hidden.md\:flex a.text-sm.text-gray-600 {
+    color: #cbd5e1 !important;
+  }
+  body:has(.theme-v2) header nav .hidden.md\:flex a.text-sm.text-gray-600:hover {
+    color: #ffffff !important;
+  }
+
+  /* Locale switch link */
+  body:has(.theme-v2) header nav .hidden.md\:flex a.text-gray-400 {
+    color: #64748b !important;
+  }
+  body:has(.theme-v2) header nav .hidden.md\:flex a.text-gray-400:hover {
+    color: #e2e8f0 !important;
+  }
+
+  /* Contact CTA button in header */
+  body:has(.theme-v2) header nav .hidden.md\:flex a.bg-gray-900 {
+    background: linear-gradient(135deg, #3b82f6, #7c3aed) !important;
+    border: none;
+  }
+  body:has(.theme-v2) header nav .hidden.md\:flex a.bg-gray-900:hover {
+    background: linear-gradient(135deg, #2563eb, #6d28d9) !important;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+
+  /* Mobile menu button icon */
+  body:has(.theme-v2) header #mobile-menu-btn {
+    color: #e2e8f0;
+  }
+
+  /* Mobile menu panel */
+  body:has(.theme-v2) header #mobile-menu {
+    background: rgba(10, 10, 26, 0.95) !important;
+    border-color: rgba(99, 102, 241, 0.15) !important;
+  }
+  body:has(.theme-v2) header #mobile-menu a {
+    color: #cbd5e1 !important;
+  }
+  body:has(.theme-v2) header #mobile-menu a:hover {
+    color: #ffffff !important;
+  }
+
+  /* ============================================================
+     HERO SECTION
+     Dark bg with dot-grid mesh pattern
+     ============================================================ */
+
+  .theme-v2 > section:first-child {
+    background-color: #0a0a1a !important;
+    background-image: radial-gradient(circle, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+    position: relative;
+  }
+
+  /* Hero heading — gradient text */
+  .theme-v2 > section:first-child h1 {
+    background: linear-gradient(135deg, #22d3ee, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #ffffff; /* fallback */
+  }
+
+  /* Subtitle paragraph */
+  .theme-v2 > section:first-child > div > p {
+    color: #94a3b8 !important;
+  }
+
+  /* All text in hero that's gray-600 or gray-900 */
+  .theme-v2 > section:first-child .text-gray-900 {
+    color: #f1f5f9 !important;
+  }
+  .theme-v2 > section:first-child .text-gray-600 {
+    color: #cbd5e1 !important;
+  }
+  .theme-v2 > section:first-child .text-gray-500 {
+    color: #94a3b8 !important;
+  }
+  .theme-v2 > section:first-child .text-gray-700 {
+    color: #e2e8f0 !important;
+  }
+
+  /* Availability badge */
+  .theme-v2 > section:first-child .border-gray-200.bg-gray-50 {
+    background: rgba(99, 102, 241, 0.08) !important;
+    border-color: rgba(99, 102, 241, 0.25) !important;
+  }
+  .theme-v2 > section:first-child .border-gray-200.bg-gray-50 span.text-sm {
+    color: #cbd5e1 !important;
+  }
+
+  /* Primary CTA — gradient bg with glow */
+  .theme-v2 > section:first-child a.bg-gray-900 {
+    background: linear-gradient(135deg, #3b82f6, #7c3aed) !important;
+    color: #ffffff !important;
+    border: none;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
+  }
+  .theme-v2 > section:first-child a.bg-gray-900:hover {
+    background: linear-gradient(135deg, #2563eb, #6d28d9) !important;
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.15);
+  }
+
+  /* Secondary CTA — transparent with white border */
+  .theme-v2 > section:first-child a.border-gray-200.bg-white {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+  }
+  .theme-v2 > section:first-child a.border-gray-200.bg-white:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  /* ============================================================
+     FEATURES SECTION (#features)
+     Light body with dark→light gradient transition at top
+     ============================================================ */
+
+  .theme-v2 #features {
+    position: relative;
+    background: #fafafa !important;
+    border-color: transparent !important;
+  }
+
+  /* Gradient overlay: dark to light transition from hero */
+  .theme-v2 #features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, #0a0a1a, transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Features heading — gradient text */
+  .theme-v2 #features h2 {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #2563eb; /* fallback */
+  }
+
+  /* Feature cards: subtle violet glow on hover */
+  .theme-v2 #features .group {
+    transition: all 0.3s ease;
+  }
+  .theme-v2 #features .group:hover {
+    border-color: rgba(99, 102, 241, 0.3) !important;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1), 0 0 0 1px rgba(124, 58, 237, 0.05);
+  }
+
+  /* Icon containers: light indigo tint */
+  .theme-v2 #features .bg-gray-100 {
+    background: rgba(99, 102, 241, 0.08) !important;
+  }
+
+  /* ============================================================
+     PROCESS SECTION
+     ============================================================ */
+
+  /* Process heading — gradient text */
+  .theme-v2 > section:nth-child(3) h2 {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #2563eb; /* fallback */
+  }
+
+  /* Step numbers: light blue tint */
+  .theme-v2 > section:nth-child(3) .text-gray-100 {
+    color: #dbeafe !important;
+  }
+
+  /* ============================================================
+     BLOG SECTION (#blog)
+     ============================================================ */
+
+  /* Blog heading — gradient text */
+  .theme-v2 #blog h2 {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #2563eb; /* fallback */
+  }
+
+  /* Blog cards: subtle blue glow on hover */
+  .theme-v2 #blog .divide-y {
+    transition: box-shadow 0.3s ease;
+  }
+  .theme-v2 #blog .divide-y:hover {
+    box-shadow: 0 4px 24px rgba(99, 102, 241, 0.1);
+  }
+
+  /* Individual blog links: blue tint on hover */
+  .theme-v2 #blog .group:hover {
+    background: rgba(99, 102, 241, 0.04) !important;
+  }
+
+  /* ============================================================
+     CONTACT SECTION (#contact)
+     Dark bookend matching the hero
+     ============================================================ */
+
+  .theme-v2 #contact {
+    background-color: #0a0a1a !important;
+    background-image: radial-gradient(circle, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+    position: relative;
+  }
+
+  /* Contact heading */
+  .theme-v2 #contact h2 {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff;
+  }
+
+  /* Contact subtitle */
+  .theme-v2 #contact .text-gray-500 {
+    color: #94a3b8 !important;
+  }
+
+  /* Form inputs */
+  .theme-v2 #contact input,
+  .theme-v2 #contact textarea {
+    background: #1a1a2e !important;
+    border-color: rgba(99, 102, 241, 0.2) !important;
+    color: #f1f5f9 !important;
+  }
+  .theme-v2 #contact input::placeholder,
+  .theme-v2 #contact textarea::placeholder {
+    color: #64748b !important;
+  }
+  .theme-v2 #contact input:focus,
+  .theme-v2 #contact textarea:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    outline: none;
+  }
+
+  /* Submit button — gradient */
+  .theme-v2 #contact button[type="submit"] {
+    background: linear-gradient(135deg, #3b82f6, #7c3aed) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
+  }
+  .theme-v2 #contact button[type="submit"]:hover {
+    background: linear-gradient(135deg, #2563eb, #6d28d9) !important;
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(124, 58, 237, 0.15);
+  }
+
+  /* Labels (sr-only are already hidden, but just in case) */
+  .theme-v2 #contact label {
+    color: #cbd5e1 !important;
+  }
+
+  /* ============================================================
+     FOOTER
+     Dark to match contact section
+     ============================================================ */
+
+  body:has(.theme-v2) footer {
+    background: #0a0a1a !important;
+    border-color: rgba(99, 102, 241, 0.1) !important;
+  }
+
+  body:has(.theme-v2) footer span,
+  body:has(.theme-v2) footer p {
+    color: #64748b !important;
+  }
+
+  body:has(.theme-v2) footer img {
+    opacity: 0.4;
+  }
+</style>

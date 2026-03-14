@@ -7,6 +7,8 @@ export interface HeroProps {
 
 export default function Hero({ locale }: HeroProps) {
   const copy = siteCopy[locale];
+  const highlightWord = locale === 'es' ? 'impulsa' : 'drives';
+  const titleParts = copy.hero.title.split(highlightWord);
 
   return (
     <section className="flex min-h-screen items-center justify-center px-6">
@@ -19,7 +21,7 @@ export default function Hero({ locale }: HeroProps) {
         </div>
 
         <h1 className="text-5xl font-extrabold leading-[1.1] tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
-          {copy.hero.title}
+          {titleParts[0]}<em className="hero-highlight">{highlightWord}</em>{titleParts[1]}
         </h1>
 
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-gray-500">

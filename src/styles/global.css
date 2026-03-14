@@ -29,6 +29,42 @@ body {
   scroll-margin-top: 5rem;
 }
 
+/* Fix gradient text clipping descenders (g, y, p, q, j) */
+h1, h2, h3 {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+/* Hero highlight — shimmer sweep via background-clip text */
+.hero-highlight {
+  --shimmer-base: #111827;
+  --shimmer-accent: #6366f1;
+  font-style: italic;
+  padding-right: 6px;
+  background: linear-gradient(
+    110deg,
+    var(--shimmer-base) 35%,
+    var(--shimmer-accent) 50%,
+    var(--shimmer-base) 65%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-forward 4s ease-in-out infinite;
+}
+
+@keyframes shimmer-forward {
+  0%, 20% {
+    background-position: 100% center;
+  }
+  60%, 100% {
+    background-position: -50% center;
+  }
+}
+
 /* Form focus ring */
 input:focus-visible,
 textarea:focus-visible {

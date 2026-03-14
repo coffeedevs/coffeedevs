@@ -1,0 +1,128 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.tsx';
+import Features from '@components/Features.tsx';
+import Process from '@components/Process.tsx';
+import Blog from '@components/Blog.tsx';
+import Contact from '@components/Contact.tsx';
+import { getLatestBlogPosts } from '@utils/rss';
+
+const locale = 'es';
+const posts = await getLatestBlogPosts(5);
+---
+
+<Layout locale={locale}>
+  <div class="theme-v1">
+    <Hero locale={locale} />
+    <Features locale={locale} />
+    <Process locale={locale} />
+    <Blog locale={locale} posts={posts} />
+    <Contact locale={locale} />
+  </div>
+</Layout>
+
+<style is:global>
+  /* ============================================
+     V1 "Subtle Glow" — Light base + blue/purple accents
+     ============================================ */
+
+  /* --- Shared gradient text utility --- */
+  .theme-v1 h1.text-5xl,
+  .theme-v1 h2.text-3xl {
+    background: linear-gradient(135deg, #3b82f6, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* =====================
+     HERO SECTION
+     ===================== */
+
+  /* Availability badge — subtle blue tint border */
+  .theme-v1 section.min-h-screen .rounded-full.border.border-gray-200 {
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+
+  /* Primary CTA — gradient background + glow on hover */
+  .theme-v1 section.min-h-screen a.bg-gray-900.rounded-full {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    transition: all 0.3s ease;
+  }
+
+  .theme-v1 section.min-h-screen a.bg-gray-900.rounded-full:hover {
+    background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+    box-shadow: 0 0 24px rgba(99, 102, 241, 0.35);
+  }
+
+  /* Secondary CTA — blue-ish border on hover */
+  .theme-v1 section.min-h-screen a.border.border-gray-200.bg-white.rounded-full:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+  }
+
+  /* =====================
+     FEATURES SECTION
+     ===================== */
+
+  /* Feature cards — glow on hover */
+  .theme-v1 #features .rounded-2xl.border.border-gray-200.bg-white {
+    transition: all 0.3s ease;
+  }
+
+  .theme-v1 #features .rounded-2xl.border.border-gray-200.bg-white:hover {
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+  }
+
+  /* Icon containers — light blue/indigo tint */
+  .theme-v1 #features .bg-gray-100.rounded-xl {
+    background-color: rgba(224, 231, 255, 0.7);
+  }
+
+  /* =====================
+     PROCESS SECTION
+     ===================== */
+
+  /* Step numbers — light indigo tint instead of gray-100 */
+  .theme-v1 .text-5xl.font-extrabold.text-gray-100 {
+    -webkit-text-fill-color: initial;
+    color: rgba(199, 210, 254, 0.8);
+  }
+
+  /* =====================
+     BLOG SECTION
+     ===================== */
+
+  /* Blog card container — glow on hover */
+  .theme-v1 #blog .rounded-2xl.border.border-gray-200.bg-white {
+    transition: all 0.3s ease;
+  }
+
+  .theme-v1 #blog .rounded-2xl.border.border-gray-200.bg-white:hover {
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+  }
+
+  /* =====================
+     CONTACT SECTION
+     ===================== */
+
+  /* Submit button — gradient background + glow on hover */
+  .theme-v1 #contact button[type="submit"] {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    transition: all 0.3s ease;
+  }
+
+  .theme-v1 #contact button[type="submit"]:hover {
+    background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+    box-shadow: 0 0 24px rgba(99, 102, 241, 0.35);
+  }
+
+  /* Input focus — blue border + blue ring */
+  .theme-v1 #contact input:focus,
+  .theme-v1 #contact textarea:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  }
+</style>

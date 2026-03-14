@@ -1,0 +1,376 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.tsx';
+import Features from '@components/Features.tsx';
+import Process from '@components/Process.tsx';
+import Blog from '@components/Blog.tsx';
+import Contact from '@components/Contact.tsx';
+import { getLatestBlogPosts } from '@utils/rss';
+
+const locale = 'es';
+const posts = await getLatestBlogPosts(5);
+---
+
+<Layout locale={locale}>
+  <div class="theme-v4">
+    <Hero locale={locale} />
+    <Features locale={locale} />
+    <Process locale={locale} />
+    <Blog locale={locale} posts={posts} />
+    <Contact locale={locale} />
+  </div>
+</Layout>
+
+<style is:global>
+  /* ============================================
+     V4 "Aurora" — Dark hero with animated aurora,
+     transitioning to light body, dark contact bookend
+     ============================================ */
+
+  /* --- Aurora keyframe animation --- */
+  @keyframes aurora {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 50% 100%; }
+    75% { background-position: 0% 100%; }
+  }
+
+  /* --- Gradient text utility --- */
+  .theme-v4 h1.text-5xl,
+  .theme-v4 h2.text-3xl {
+    background: linear-gradient(135deg, #34d399, #22d3ee, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* =====================
+     HEADER / NAVIGATION
+     ===================== */
+
+  .theme-v4 ~ :is(nothing),
+  :has(.theme-v4) header.fixed {
+    background: rgba(10, 10, 26, 0.8) !important;
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(6, 182, 212, 0.08);
+  }
+
+  /* Logo text */
+  :has(.theme-v4) header .text-lg.font-semibold {
+    color: #fff !important;
+  }
+
+  /* Nav links */
+  :has(.theme-v4) header nav a.text-sm.font-medium.text-gray-600 {
+    color: #cbd5e1 !important;
+  }
+
+  :has(.theme-v4) header nav a.text-sm.font-medium.text-gray-600:hover {
+    color: #34d399 !important;
+  }
+
+  /* Locale switcher */
+  :has(.theme-v4) header nav a.text-sm.font-medium.text-gray-400 {
+    color: #64748b !important;
+  }
+
+  :has(.theme-v4) header nav a.text-sm.font-medium.text-gray-400:hover {
+    color: #34d399 !important;
+  }
+
+  /* Nav CTA button — gradient */
+  :has(.theme-v4) header nav a.rounded-full.bg-gray-900 {
+    background: linear-gradient(135deg, #10b981, #06b6d4, #8b5cf6) !important;
+    color: #fff !important;
+    border: none;
+  }
+
+  :has(.theme-v4) header nav a.rounded-full.bg-gray-900:hover {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  }
+
+  /* Mobile menu button */
+  :has(.theme-v4) #mobile-menu-btn svg {
+    color: #e2e8f0;
+  }
+
+  /* Mobile menu panel */
+  :has(.theme-v4) #mobile-menu {
+    background: #0a0a1a !important;
+    border-color: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  :has(.theme-v4) #mobile-menu a {
+    color: #cbd5e1 !important;
+  }
+
+  /* =====================
+     HERO SECTION
+     ===================== */
+
+  .theme-v4 section.min-h-screen {
+    position: relative;
+    background: #0a0a1a;
+    overflow: hidden;
+  }
+
+  /* Aurora pseudo-element */
+  .theme-v4 section.min-h-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(6, 182, 212, 0.15),
+      rgba(99, 102, 241, 0.15),
+      rgba(168, 85, 247, 0.15),
+      rgba(236, 72, 153, 0.12),
+      rgba(6, 182, 212, 0.15)
+    );
+    background-size: 400% 400%;
+    animation: aurora 15s ease infinite;
+    filter: blur(80px);
+    z-index: 0;
+  }
+
+  /* Keep hero content above aurora */
+  .theme-v4 section.min-h-screen > div {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* h1 — gradient text override for hero */
+  .theme-v4 section.min-h-screen h1.text-5xl {
+    background: linear-gradient(135deg, #34d399, #22d3ee, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtitle */
+  .theme-v4 section.min-h-screen p.text-lg {
+    color: #cbd5e1;
+  }
+
+  /* Availability badge — dark bg, emerald border tint */
+  .theme-v4 section.min-h-screen .rounded-full.border.border-gray-200 {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(52, 211, 153, 0.3);
+  }
+
+  .theme-v4 section.min-h-screen .rounded-full.border.border-gray-200 .bg-gray-50 {
+    background: transparent;
+  }
+
+  .theme-v4 section.min-h-screen .rounded-full.border .text-sm.font-medium {
+    color: #e2e8f0;
+  }
+
+  /* Primary CTA — aurora gradient */
+  .theme-v4 section.min-h-screen a.bg-gray-900.rounded-full {
+    background: linear-gradient(135deg, #10b981, #06b6d4, #8b5cf6) !important;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .theme-v4 section.min-h-screen a.bg-gray-900.rounded-full:hover {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+  }
+
+  /* Secondary CTA — transparent, white/slate border */
+  .theme-v4 section.min-h-screen a.border.border-gray-200.bg-white.rounded-full {
+    background: transparent !important;
+    border-color: rgba(148, 163, 184, 0.4);
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .theme-v4 section.min-h-screen a.border.border-gray-200.bg-white.rounded-full:hover {
+    border-color: rgba(148, 163, 184, 0.7);
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* =====================
+     FEATURES SECTION
+     ===================== */
+
+  .theme-v4 #features {
+    background: linear-gradient(to bottom, #f8fafc, white 200px) !important;
+    border-top: none !important;
+  }
+
+  /* h2 — emerald/cyan/violet gradient (reuse shared rule) */
+  .theme-v4 #features h2.text-3xl {
+    background: linear-gradient(135deg, #10b981, #06b6d4, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Feature cards */
+  .theme-v4 #features .rounded-2xl.border.border-gray-200.bg-white {
+    transition: all 0.3s ease;
+  }
+
+  .theme-v4 #features .rounded-2xl.border.border-gray-200.bg-white:hover {
+    border-color: transparent;
+    box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.3), 0 4px 20px rgba(6, 182, 212, 0.1);
+  }
+
+  /* Icon containers — light emerald/cyan tint */
+  .theme-v4 #features .bg-gray-100.rounded-xl {
+    background-color: rgba(204, 251, 241, 0.5);
+  }
+
+  /* Card titles and text keep defaults (gray-900, gray-500) */
+
+  /* =====================
+     PROCESS SECTION
+     ===================== */
+
+  .theme-v4 section:has(.text-5xl.font-extrabold) {
+    background: #fff;
+  }
+
+  /* Step numbers — faint emerald/cyan tint */
+  .theme-v4 .text-5xl.font-extrabold.text-gray-100 {
+    -webkit-text-fill-color: initial;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.15));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Titles & text keep gray defaults */
+
+  /* =====================
+     BLOG SECTION
+     ===================== */
+
+  .theme-v4 #blog {
+    background: rgba(249, 250, 251, 0.5);
+  }
+
+  /* Blog card container — glow on hover with cyan tint */
+  .theme-v4 #blog .rounded-2xl.border.border-gray-200.bg-white {
+    transition: all 0.3s ease;
+  }
+
+  .theme-v4 #blog .rounded-2xl.border.border-gray-200.bg-white:hover {
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.12);
+  }
+
+  /* Blog link hover color */
+  .theme-v4 #blog a.group:hover .text-sm.font-medium {
+    color: #059669;
+  }
+
+  /* Arrow icons — emerald/cyan on hover */
+  .theme-v4 #blog a.group:hover svg {
+    color: #06b6d4;
+  }
+
+  /* "View all" link hover */
+  .theme-v4 #blog a.inline-flex.items-center.text-sm:hover {
+    color: #059669;
+  }
+
+  /* =====================
+     CONTACT SECTION
+     ===================== */
+
+  .theme-v4 #contact {
+    position: relative;
+    background: #0a0a1a !important;
+    overflow: hidden;
+  }
+
+  /* Aurora pseudo-element — more subtle */
+  .theme-v4 #contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(6, 182, 212, 0.08),
+      rgba(99, 102, 241, 0.08),
+      rgba(168, 85, 247, 0.08),
+      rgba(236, 72, 153, 0.06),
+      rgba(6, 182, 212, 0.08)
+    );
+    background-size: 400% 400%;
+    animation: aurora 15s ease infinite;
+    filter: blur(80px);
+    z-index: 0;
+  }
+
+  /* Contact content above aurora */
+  .theme-v4 #contact > div {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* h2 — gradient text */
+  .theme-v4 #contact h2.text-3xl {
+    background: linear-gradient(135deg, #34d399, #22d3ee, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtitle */
+  .theme-v4 #contact p.text-lg {
+    color: #cbd5e1;
+  }
+
+  /* Inputs — dark bg, slate borders */
+  .theme-v4 #contact input,
+  .theme-v4 #contact textarea {
+    background: #111827 !important;
+    border-color: #334155 !important;
+    color: #fff !important;
+  }
+
+  .theme-v4 #contact input::placeholder,
+  .theme-v4 #contact textarea::placeholder {
+    color: #64748b !important;
+  }
+
+  /* Focus — cyan border + ring */
+  .theme-v4 #contact input:focus,
+  .theme-v4 #contact textarea:focus {
+    border-color: #06b6d4 !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+  }
+
+  /* Submit button — aurora gradient with glow */
+  .theme-v4 #contact button[type="submit"] {
+    background: linear-gradient(135deg, #10b981, #06b6d4, #8b5cf6) !important;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .theme-v4 #contact button[type="submit"]:hover {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+  }
+
+  /* =====================
+     FOOTER
+     ===================== */
+
+  :has(.theme-v4) footer {
+    background: #0a0a1a !important;
+    border-top-color: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  :has(.theme-v4) footer .text-sm.text-gray-400,
+  :has(.theme-v4) footer span.text-sm {
+    color: #64748b !important;
+  }
+
+  :has(.theme-v4) footer img {
+    opacity: 0.4;
+  }
+</style>

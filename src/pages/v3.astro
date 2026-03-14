@@ -1,0 +1,455 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero.tsx';
+import Features from '@components/Features.tsx';
+import Process from '@components/Process.tsx';
+import Blog from '@components/Blog.tsx';
+import Contact from '@components/Contact.tsx';
+import { getLatestBlogPosts } from '@utils/rss';
+
+const locale = 'es';
+const posts = await getLatestBlogPosts(5);
+---
+
+<Layout locale={locale}>
+  <div class="theme-v3">
+    <Hero locale={locale} />
+    <Features locale={locale} />
+    <Process locale={locale} />
+    <Blog locale={locale} posts={posts} />
+    <Contact locale={locale} />
+  </div>
+</Layout>
+
+<style is:global>
+  /* ============================================
+     V3 "NEON DARK" — Sci-fi / Cyberpunk variant
+     ============================================ */
+
+  /* ---------- GLOBAL DARK BASE ---------- */
+  .theme-v3 {
+    background: #050510;
+    color: #e2e8f0;
+  }
+
+  /* Override body & html when v3 is present */
+  body:has(.theme-v3) {
+    background: #050510 !important;
+    color: #e2e8f0 !important;
+  }
+
+  /* ---------- HEADER ---------- */
+  body:has(.theme-v3) header {
+    background: rgba(5, 5, 16, 0.8) !important;
+    border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+  }
+
+  body:has(.theme-v3) header nav a span {
+    color: #ffffff !important;
+  }
+
+  body:has(.theme-v3) header nav > .hidden a:not([class*="rounded-full"]):not(:last-child) {
+    color: #94a3b8 !important;
+  }
+
+  body:has(.theme-v3) header nav > .hidden a:not([class*="rounded-full"]):not(:last-child):hover {
+    color: #22d3ee !important;
+  }
+
+  /* Nav locale switch */
+  body:has(.theme-v3) header nav > .hidden a:last-child {
+    color: #64748b !important;
+  }
+
+  body:has(.theme-v3) header nav > .hidden a:last-child:hover {
+    color: #22d3ee !important;
+  }
+
+  /* Nav CTA button */
+  body:has(.theme-v3) header nav > .hidden a[class*="rounded-full"] {
+    background: linear-gradient(135deg, #06b6d4, #7c3aed) !important;
+    color: #ffffff !important;
+    border: none !important;
+  }
+
+  body:has(.theme-v3) header nav > .hidden a[class*="rounded-full"]:hover {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+  }
+
+  /* Mobile menu button */
+  body:has(.theme-v3) header button svg {
+    color: #e2e8f0 !important;
+  }
+
+  /* Mobile menu */
+  body:has(.theme-v3) #mobile-menu {
+    background: #0a0a1f !important;
+    border-color: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  body:has(.theme-v3) #mobile-menu a {
+    color: #94a3b8 !important;
+  }
+
+  body:has(.theme-v3) #mobile-menu a:hover {
+    color: #22d3ee !important;
+  }
+
+  /* ---------- HERO SECTION ---------- */
+  .theme-v3 section:first-child {
+    background: transparent !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Animated gradient orbs */
+  .theme-v3 section:first-child::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: v3-orb-float 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .theme-v3 section:first-child::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: v3-orb-float 10s ease-in-out infinite reverse;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes v3-orb-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 15px) scale(0.95); }
+  }
+
+  /* Hero content above orbs */
+  .theme-v3 section:first-child > div {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Hero h1 — gradient text */
+  .theme-v3 section:first-child h1 {
+    background: linear-gradient(135deg, #22d3ee, #a78bfa) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+  }
+
+  /* Hero subtitle */
+  .theme-v3 section:first-child p {
+    color: #94a3b8 !important;
+  }
+
+  /* Availability badge */
+  .theme-v3 section:first-child .inline-flex[class*="rounded-full"][class*="border"] {
+    border-color: rgba(6, 182, 212, 0.3) !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  .theme-v3 section:first-child .inline-flex[class*="rounded-full"][class*="border"] span:last-child {
+    color: #67e8f9 !important;
+  }
+
+  .theme-v3 section:first-child .inline-flex[class*="rounded-full"][class*="border"] span:first-child {
+    background: #06b6d4 !important;
+  }
+
+  /* Hero primary CTA */
+  .theme-v3 section:first-child a[href="#contact"] {
+    background: linear-gradient(135deg, #06b6d4, #7c3aed) !important;
+    color: #ffffff !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .theme-v3 section:first-child a[href="#contact"]:hover {
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.4), 0 0 50px rgba(124, 58, 237, 0.2) !important;
+  }
+
+  /* Hero secondary CTA */
+  .theme-v3 section:first-child a[href="#features"] {
+    border-color: rgba(6, 182, 212, 0.3) !important;
+    background: transparent !important;
+    color: #67e8f9 !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .theme-v3 section:first-child a[href="#features"]:hover {
+    border-color: rgba(6, 182, 212, 0.6) !important;
+    background: rgba(6, 182, 212, 0.05) !important;
+  }
+
+  /* ---------- FEATURES SECTION ---------- */
+  .theme-v3 #features {
+    background: #080818 !important;
+    border-color: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  /* Features h2 — gradient text */
+  .theme-v3 #features h2 {
+    background: linear-gradient(135deg, #22d3ee, #a78bfa) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+  }
+
+  /* Features subtitle */
+  .theme-v3 #features > div > div:first-child p {
+    color: #94a3b8 !important;
+  }
+
+  /* Feature cards — glassmorphism */
+  .theme-v3 #features .grid > div {
+    background: rgba(15, 15, 35, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(6, 182, 212, 0.15) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .theme-v3 #features .grid > div:hover {
+    border-color: rgba(6, 182, 212, 0.3) !important;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.15) !important;
+  }
+
+  /* Icon containers */
+  .theme-v3 #features .grid > div > div:first-child {
+    background: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  .theme-v3 #features .grid > div > div:first-child img {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  /* Card titles */
+  .theme-v3 #features .grid > div h3 {
+    color: #ffffff !important;
+  }
+
+  /* Card text */
+  .theme-v3 #features .grid > div p {
+    color: #94a3b8 !important;
+  }
+
+  /* ---------- PROCESS SECTION ---------- */
+  .theme-v3 section:not(#features):not(#blog):not(#contact):not(:first-child) {
+    background: transparent !important;
+  }
+
+  /* Process h2 — gradient text */
+  .theme-v3 section:not(#features):not(#blog):not(#contact):not(:first-child) h2 {
+    background: linear-gradient(135deg, #22d3ee, #a78bfa) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+  }
+
+  /* Process subtitle */
+  .theme-v3 section:not(#features):not(#blog):not(#contact):not(:first-child) > div > div:first-child p {
+    color: #94a3b8 !important;
+  }
+
+  /* Step numbers */
+  .theme-v3 section:not(#features):not(#blog):not(#contact):not(:first-child) .grid span[class*="text-5xl"] {
+    color: rgba(6, 182, 212, 0.2) !important;
+  }
+
+  /* Step titles */
+  .theme-v3 section:not(#features):not(#blog):not(#contact):not(:first-child) .grid h3 {
+    color: #ffffff !important;
+  }
+
+  /* Step text */
+  .theme-v3 section:not(#features):not(#blog):not(#contact):not(:first-child) .grid p {
+    color: #94a3b8 !important;
+  }
+
+  /* ---------- BLOG SECTION ---------- */
+  .theme-v3 #blog {
+    background: #080818 !important;
+    border-color: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  /* Blog h2 — gradient text */
+  .theme-v3 #blog h2 {
+    background: linear-gradient(135deg, #22d3ee, #a78bfa) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+  }
+
+  /* Blog subtitle */
+  .theme-v3 #blog > div > div:first-child p {
+    color: #94a3b8 !important;
+  }
+
+  /* Blog list wrapper — glassmorphism */
+  .theme-v3 #blog .divide-y {
+    background: rgba(15, 15, 35, 0.6) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(6, 182, 212, 0.15) !important;
+  }
+
+  /* Dividers between posts */
+  .theme-v3 #blog .divide-y > * + * {
+    border-color: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  /* Blog items hover */
+  .theme-v3 #blog .divide-y a {
+    transition: all 0.2s ease !important;
+  }
+
+  .theme-v3 #blog .divide-y a:hover {
+    background: rgba(6, 182, 212, 0.05) !important;
+  }
+
+  /* Blog item text */
+  .theme-v3 #blog .divide-y a span {
+    color: #e2e8f0 !important;
+  }
+
+  .theme-v3 #blog .divide-y a:hover span {
+    color: #ffffff !important;
+  }
+
+  /* Blog arrow icons */
+  .theme-v3 #blog .divide-y a svg {
+    color: rgba(6, 182, 212, 0.4) !important;
+  }
+
+  .theme-v3 #blog .divide-y a:hover svg {
+    color: #22d3ee !important;
+  }
+
+  /* Blog CTA link */
+  .theme-v3 #blog .text-center a {
+    color: #22d3ee !important;
+  }
+
+  .theme-v3 #blog .text-center a:hover {
+    color: #ffffff !important;
+  }
+
+  /* Blog empty state */
+  .theme-v3 #blog p[class*="text-gray-400"] {
+    color: #64748b !important;
+  }
+
+  /* ---------- CONTACT SECTION ---------- */
+  .theme-v3 #contact {
+    background: transparent !important;
+  }
+
+  /* Contact h2 — gradient text */
+  .theme-v3 #contact h2 {
+    background: linear-gradient(135deg, #22d3ee, #a78bfa) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+  }
+
+  /* Contact subtitle */
+  .theme-v3 #contact > div > div > div:first-child p {
+    color: #94a3b8 !important;
+  }
+
+  /* Form inputs */
+  .theme-v3 #contact input,
+  .theme-v3 #contact textarea {
+    background: rgba(15, 15, 35, 0.6) !important;
+    border: 1px solid rgba(6, 182, 212, 0.2) !important;
+    color: #ffffff !important;
+  }
+
+  .theme-v3 #contact input::placeholder,
+  .theme-v3 #contact textarea::placeholder {
+    color: #64748b !important;
+  }
+
+  .theme-v3 #contact input:focus,
+  .theme-v3 #contact textarea:focus {
+    border-color: #22d3ee !important;
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2) !important;
+    outline: none !important;
+  }
+
+  /* overrides the global focus-visible ring for v3 */
+  body:has(.theme-v3) input:focus-visible,
+  body:has(.theme-v3) textarea:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2) !important;
+  }
+
+  /* Submit button */
+  .theme-v3 #contact button[type="submit"] {
+    background: linear-gradient(135deg, #06b6d4, #7c3aed) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .theme-v3 #contact button[type="submit"]:hover {
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.4), 0 0 50px rgba(124, 58, 237, 0.2) !important;
+  }
+
+  /* ---------- FOOTER ---------- */
+  body:has(.theme-v3) footer {
+    background: #050510 !important;
+    border-color: rgba(6, 182, 212, 0.1) !important;
+  }
+
+  body:has(.theme-v3) footer span,
+  body:has(.theme-v3) footer p {
+    color: #64748b !important;
+  }
+
+  body:has(.theme-v3) footer img {
+    opacity: 0.4 !important;
+  }
+
+  /* ---------- SCROLLBAR ---------- */
+  body:has(.theme-v3)::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  body:has(.theme-v3)::-webkit-scrollbar-track {
+    background: #050510;
+  }
+
+  body:has(.theme-v3)::-webkit-scrollbar-thumb {
+    background: rgba(6, 182, 212, 0.2);
+    border-radius: 4px;
+  }
+
+  body:has(.theme-v3)::-webkit-scrollbar-thumb:hover {
+    background: rgba(6, 182, 212, 0.4);
+  }
+
+  /* ---------- SELECTION ---------- */
+  body:has(.theme-v3) ::selection {
+    background: rgba(6, 182, 212, 0.3);
+    color: #ffffff;
+  }
+</style>
