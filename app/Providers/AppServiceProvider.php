@@ -42,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(Turnstile::class, function ($app) {
             return new Turnstile(
                 new Client(),
+                $app['db']->connection(),
                 $app['config']['services.turnstile.secret_key'],
                 $app['config']['services.turnstile.hostnames'],
                 $app->environment('local', 'testing')

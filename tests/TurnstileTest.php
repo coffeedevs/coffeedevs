@@ -7,9 +7,19 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Facades\DB;
 
 class TurnstileTest extends TestCase
 {
+    public function setUp()
+    {
+        parent::setUp();
+
+        config(['database.default' => 'sqlite', 'database.connections.sqlite.database' => ':memory:']);
+        require_once database_path('migrations/2026_09_23_000000_create_turnstile_tokens_table.php');
+        (new CreateTurnstileTokensTable())->up();
+    }
+
     public function test_it_accepts_a_successful_response_with_the_expected_action()
     {
         $this->assertTrue($this->turnstile(['success' => true, 'action' => 'contact'])->verify('token', null, 'contact'));
@@ -32,6 +42,31 @@ class TurnstileTest extends TestCase
     public function test_it_rejects_a_missing_hostname_when_hostnames_are_configured()
     {
         $this->assertFalse($this->turnstile(['success' => true, 'action' => 'contact'], 'secret', ['coffeedevs.com'])->verify('token', null, 'contact'));
+    }
+
+    public function test_it_rejects_a_replayed_token_even_if_siteverify_accepts_it()
+    {
+        $turnstile = $this->turnstile(['success' => true, 'action' => 'contact', 'hostname' => 'coffeedevs.com'], 'secret', ['coffeedevs.com']);
+
+        $this->assertTrue($turnstile->verify('token', null, 'contact'));
+        $this->assertFalse($turnstile->verify('token', null, 'contact'));
+    }
+
+    public function test_a_replayed_token_is_rejected_across_instances()
+    {
+        $response = ['success' => true, 'action' => 'contact', 'hostname' => 'coffeedevs.com'];
+
+        $this->assertTrue($this->turnstile($response, 'secret', ['coffeedevs.com'])->verify('token', null, 'contact'));
+        $this->assertFalse($this->turnstile($response, 'secret', ['coffeedevs.com'])->verify('token', null, 'contact'));
+    }
+
+    public function test_used_tokens_older_than_the_ttl_are_pruned()
+    {
+        DB::table('turnstile_tokens')->insert(['hash' => str_repeat('a', 64), 'created_at' => Carbon\Carbon::now()->subHours(2)]);
+
+        $this->turnstile(['success' => true, 'action' => 'contact', 'hostname' => 'coffeedevs.com'], 'secret', ['coffeedevs.com'])->verify('token', null, 'contact');
+
+        $this->assertSame(1, DB::table('turnstile_tokens')->count());
     }
 
     public function test_it_rejects_a_successful_response_with_another_action()
@@ -66,7 +101,7 @@ class TurnstileTest extends TestCase
     public function test_it_rejects_when_siteverify_is_unreachable()
     {
         $mock = new MockHandler([new ConnectException('timeout', new Request('POST', Turnstile::VERIFY_URL))]);
-        $turnstile = new Turnstile(new Client(['handler' => HandlerStack::create($mock)]), 'secret');
+        $turnstile = new Turnstile(new Client(['handler' => HandlerStack::create($mock)]), DB::connection(), 'secret');
 
         $this->assertFalse($turnstile->verify('token', null, 'contact'));
     }
@@ -80,8 +115,17 @@ class TurnstileTest extends TestCase
 
     protected function turnstile(array $response, $secret = 'secret', array $hostnames = [], $allowTestingKeys = false)
     {
-        $mock = new MockHandler([new Response(200, [], json_encode($response))]);
+        $mock = new MockHandler([
+            new Response(200, [], json_encode($response)),
+            new Response(200, [], json_encode($response)),
+        ]);
 
-        return new Turnstile(new Client(['handler' => HandlerStack::create($mock)]), $secret, $hostnames, $allowTestingKeys);
+        return new Turnstile(
+            new Client(['handler' => HandlerStack::create($mock)]),
+            DB::connection(),
+            $secret,
+            $hostnames,
+            $allowTestingKeys
+        );
     }
 }
