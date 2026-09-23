@@ -44,6 +44,13 @@
                     <p id="contact-error" class="text-danger" style="display: none;">@lang('web.contact.form.error')</p>
                     <button type="submit" name="contacto-simple" class="btn btn-primary">@lang('web.contact.form.cta')</button>
                 </form>
+                <script data-cfasync="false">
+                    window.onTurnstileLoad = function () {
+                        var widget = document.querySelector('#formulario-contacto-simple .cf-turnstile');
+                        turnstile.render(widget, {sitekey: widget.dataset.sitekey, action: widget.dataset.action});
+                    };
+                </script>
+                <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad" data-cfasync="false" async defer></script>
             </div>
         </div>
     </div>
