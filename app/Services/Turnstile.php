@@ -49,6 +49,10 @@ class Turnstile
 
         $result = json_decode((string) $response->getBody(), true);
 
+        Log::info('Turnstile siteverify', array_intersect_key((array) $result, array_flip([
+            'success', 'error-codes', 'hostname', 'action', 'challenge_ts', 'metadata',
+        ])));
+
         if (empty($result['success'])) {
             return false;
         }
