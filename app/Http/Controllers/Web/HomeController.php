@@ -14,8 +14,12 @@ class HomeController extends Controller
         $projects = Project::orderBy('id', 'desc')->get();
         $types = Type::all();
 
-        $feed = FeedsFacade::make('https://blog.coffeedevs.com/rss');
-        $blogPosts = collect($feed->get_items())->take(3);
+        try {
+            $feed = FeedsFacade::make('https://blog.coffeedevs.com/rss');
+            $blogPosts = collect($feed->get_items())->take(3);
+        } catch (\Throwable $e) {
+            $blogPosts = collect();
+        }
 
         return view('web.index', compact('projects', 'types', 'blogPosts'));
     }
