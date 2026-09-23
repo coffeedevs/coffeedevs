@@ -163,7 +163,6 @@ return [
         //Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         //Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         Approached\LaravelImageOptimizer\ServiceProvider::class,
         willvincent\Feeds\FeedsServiceProvider::class,
     ],
@@ -212,7 +211,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
         'Feeds'    => willvincent\Feeds\Facades\FeedsFacade::class,
     ],
 

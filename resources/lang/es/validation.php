@@ -77,6 +77,7 @@ return [
     ],
     'string'               => 'El campo :attribute debe ser una cadena de caracteres.',
     'timezone'             => 'El :attribute debe ser una zona válida.',
+    'turnstile'            => 'La verificación de seguridad falló, por favor intenta de nuevo.',
     'unique'               => ':attribute ya ha sido registrado.',
     'url'                  => 'El formato :attribute es inválido.',
 
