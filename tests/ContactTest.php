@@ -2,6 +2,7 @@
 
 use App\Services\Turnstile;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Support\Facades\Mail;
 
@@ -30,7 +31,7 @@ class ContactTest extends TestCase
 
             public function __construct()
             {
-                parent::__construct(new Client(), 'secret');
+                parent::__construct(new Client(), DB::connection(), 'secret');
             }
 
             public function verify($token, $ip = null, $action = null)
