@@ -121,6 +121,7 @@ HTTPS? Lo tenemos cubierto. Somos excepcionales en ajustar el rendimiento de un 
             'name'          => 'Nombre',
             'message-title' => 'Tu consulta',
             'cta'           => 'Enviar!',
+            'error'         => 'No pudimos enviar tu consulta. Por favor revisa los datos e intenta de nuevo.',
         ],
     ],
     'portfolio' => [

@@ -29,6 +29,12 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+    'turnstile' => [
+        'site_key'   => env('TURNSTILE_SITE_KEY', '0x4AAAAAAFBMDBggZ_7BvRLM'),
+        'secret_key' => env('TURNSTILE_SECRET_KEY'),
+        'hostnames'  => ['coffeedevs.com', 'www.coffeedevs.com'],
+    ],
+
     'stripe' => [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),

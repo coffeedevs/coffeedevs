@@ -69,9 +69,17 @@ $(window).load(function () {
 })
 ;
 
+function showContactError() {
+    $('#contact-error').show();
+    if (window.turnstile) {
+        window.turnstile.reset('#formulario-contacto-simple .cf-turnstile');
+    }
+}
+
 $('#formulario-contacto-simple').submit(function (e) {
     if ($("form")[0].checkValidity()) {
         e.preventDefault();
+        $('#contact-error').hide();
         var data = ($('#formulario-contacto-simple').serialize());
 
         $.ajax({
@@ -89,10 +97,12 @@ $('#formulario-contacto-simple').submit(function (e) {
                 }
                 else {
                     console.log("Error ");
+                    showContactError();
                 }
             },
             error: function (data) {
                 console.log("Error: " + data);
+                showContactError();
             }
         });
     }

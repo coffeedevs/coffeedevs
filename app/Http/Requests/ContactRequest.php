@@ -22,11 +22,11 @@ class ContactRequest extends Request
     public function rules()
     {
         return [
-            'g-recaptcha-response' => 'required|recaptcha',
-            'consulta'             => 'required',
-            'email'                => 'required|email',
-            'nombre'               => 'required',
-            'asunto'               => 'required',
+            'cf-turnstile-response' => 'required|turnstile:contact',
+            'consulta'              => 'required',
+            'email'                 => 'required|email',
+            'nombre'                => 'required',
+            'asunto'                => 'required',
         ];
     }
 }

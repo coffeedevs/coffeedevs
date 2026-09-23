@@ -10,4 +10,4 @@
 <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" data-cfasync="false" async defer></script>

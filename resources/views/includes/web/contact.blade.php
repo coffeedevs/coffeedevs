@@ -32,11 +32,16 @@
                                           placeholder="@lang('web.contact.form.message')"
                                           style="height: 100px" rows="6" required></textarea>
                             </div>
+                            <div aria-hidden="true" style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
+                                <label for="contact-website">Website</label>
+                                <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+                            </div>
                             <div class="form-group">
-                                <div class="g-recaptcha" data-sitekey="6LceiA8TAAAAAIy5iClIsWXeXKugFm4kOOTshoI3"></div>
+                                <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.site_key') }}" data-action="contact"></div>
                             </div>
                         </div>
                     </div>
+                    <p id="contact-error" class="text-danger" style="display: none;">@lang('web.contact.form.error')</p>
                     <button type="submit" name="contacto-simple" class="btn btn-primary">@lang('web.contact.form.cta')</button>
                 </form>
             </div>

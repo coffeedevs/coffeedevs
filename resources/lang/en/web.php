@@ -128,6 +128,7 @@ return [
             'name'          => 'Your name',
             'message-title' => 'Your message',
             'cta'           => 'Talk to us',
+            'error'         => 'We couldn\'t send your message. Please check the form and try again.',
         ],
     ],
     'portfolio' => [
