@@ -2,7 +2,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class Create{{ str_plural($json->model) }}Table extends Migration
+class Create{{ \Illuminate\Support\Str::plural($json->model) }}Table extends Migration
 {
     /**
      * Run the migrations.

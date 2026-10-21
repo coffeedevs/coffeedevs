@@ -20,9 +20,17 @@ Route::group(['namespace' => 'Web'], function () {
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::get('/', 'HomeController@index');
-    Route::get('password', 'HomeController@changePassword')->name('admin.password.change');
+    Route::get('password', 'HomeController@changePassword')->name('admin.password.edit');
     Route::post('password', 'HomeController@postPassword')->name('admin.password.change');
-    Route::resource('projects', 'ProjectsController');
+    Route::resource('projects', 'ProjectsController')->names('admin.projects')->parameters(['projects'=>'id']);
 });
 
-Route::auth();
+Route::get('login', 'Auth\\AuthController@showLoginForm')->name('login');
+Route::post('login', 'Auth\\AuthController@login');
+Route::post('logout', 'Auth\\AuthController@logout')->name('logout');
+Route::get('register', 'Auth\\AuthController@showRegistrationForm');
+Route::post('register', 'Auth\\AuthController@register');
+Route::get('password/reset', 'Auth\\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\\PasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\\PasswordController@reset')->name('password.update');

@@ -18,7 +18,8 @@
             </li>
             <li><a href="{{ route('admin.password.change') }}"><i class="fa fa-key"></i>
                     <span>Cambiar contraseña</span></a>
-            <li><a href="{{ url('logout') }}"><i class="fa fa-sign-out"></i> <span>Cerrar Sesión</span></a>
+            <li><a href="{{ url('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> <span>Cerrar Sesión</span></a>
         </ul>
     </section>
 </aside>
+<form id="logout-form" method="POST" action="{{ url('logout') }}" style="display:none">@csrf</form>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Project;
 use App\Type;
-use willvincent\Feeds\Facades\FeedsFacade;
+use SimplePie\SimplePie;
 
 class HomeController extends Controller
 {
@@ -15,7 +15,23 @@ class HomeController extends Controller
         $types = Type::all();
 
         try {
-            $feed = FeedsFacade::make('https://blog.coffeedevs.com/rss');
+            $feed = new SimplePie();
+            $fetch = function () {
+                $xml = \Illuminate\Support\Facades\Http::timeout(5)->get('https://blog.coffeedevs.com/rss')->throw()->body();
+                $candidate = new SimplePie();
+                $candidate->enable_cache(false);
+                $candidate->set_raw_data($xml);
+                if ($xml === '' || !@$candidate->init()) {
+                    throw new \RuntimeException('Blog RSS is invalid');
+                }
+                return $xml;
+            };
+            $feedConfig = config('feeds');
+            $xml = ($feedConfig['cache.disabled'] ?? false) ? $fetch() : \Illuminate\Support\Facades\Cache::remember(
+                'coffeedevs.blog.rss', $feedConfig['cache.life'] ?? 3600, $fetch);
+            $feed->set_raw_data($xml);
+            $feed->enable_cache(false);
+            $feed->init();
             $blogPosts = collect($feed->get_items())->take(3);
         } catch (\Throwable $e) {
             $blogPosts = collect();

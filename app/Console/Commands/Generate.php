@@ -47,7 +47,7 @@ class Generate extends Command
     private function generateController($json)
     {
         $content = view('generator.templates.controller', compact('json'))->render();
-        $this->filesystem->put(app_path() . '/Http/Controllers/Admin/' . str_plural($json->model) . 'Controller.php', "<?php \n" . $content);
+        $this->filesystem->put(app_path() . '/Http/Controllers/Admin/' . \Illuminate\Support\Str::plural($json->model) . 'Controller.php', "<?php \n" . $content);
     }
 
     private function generateViews($json)

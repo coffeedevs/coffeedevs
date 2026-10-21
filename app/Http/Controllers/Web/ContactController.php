@@ -7,7 +7,7 @@ use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Mockery\Exception;
+use Throwable;
 
 class ContactController extends Controller
 {
@@ -34,7 +34,7 @@ class ContactController extends Controller
                 'message' => 'success',
                 'sendstatus' => 1,
             ];
-        } catch (Exception $ex) {
+        } catch (Throwable $ex) {
             $response = [
                 'message' => 'error',
                 'sendstatus' => 0,

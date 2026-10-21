@@ -1,26 +1,28 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": "5.4.*",
-        "intervention/image": "^2.3",
-        "guzzlehttp/guzzle": "6.*",
-        "barryvdh/laravel-ide-helper": "^2.2",
-        "approached/laravel-image-optimizer": "^2.2",
-        "willvincent/feeds": "^1.1"
+        "php": "^8.5",
+        "laravel/framework": "^13.0",
+        "laravel/ui": "^4.6",
+        "intervention/image-laravel": "^4.1",
+        "guzzlehttp/guzzle": "^7.9",
+        "simplepie/simplepie": "^1.9",
+        "spatie/image-optimizer": "^1.10",
+        "hampel/sparkpost-laravel": "^1.0",
+        "symfony/dom-crawler": "^8.0",
+        "symfony/css-selector": "^8.0"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~4.0",
-        "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "2.8.*|3.0.*",
-        "barryvdh/laravel-debugbar": "^2.2",
-        "doctrine/dbal": "^2.5"
+        "fakerphp/faker": "^1.24",
+        "mockery/mockery": "^1.6",
+        "phpunit/phpunit": "^12.0"
     },
     "autoload": {
         "classmap": [
@@ -36,22 +38,16 @@
         ]
     },
     "scripts": {
-        "post-root-package-install": [
-            "php -r \"copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "php artisan key:generate"
-        ],
-        "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "php artisan optimize"
-        ],
-        "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "php artisan optimize"
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
         ]
     },
     "config": {
-        "preferred-install": "dist"
+        "preferred-install": "dist",
+        "platform": {
+            "php": "8.5.12"
+        },
+        "allow-plugins": false
     }
 }

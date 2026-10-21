@@ -34,7 +34,7 @@ class Project extends Model
 {
     protected $fillable = ['title', 'link', 'type_id', 'client', 'date', 'description', 'image'];
     protected $hidden = ['password', 'remember_token',];
-    protected $dates = ['date'];
+    protected $casts = ['date' => 'datetime'];
 
     public function type()
     {

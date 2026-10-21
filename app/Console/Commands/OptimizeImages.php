@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use Approached\LaravelImageOptimizer\ImageOptimizer;
+use Spatie\ImageOptimizer\OptimizerChain;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
@@ -26,9 +26,9 @@ class OptimizeImages extends Command
     /**
      * Create a new command instance.
      *
-     * @param ImageOptimizer $optimizer
+     * @param OptimizerChain $optimizer
      */
-    public function __construct(ImageOptimizer $optimizer, Filesystem $filesystem)
+    public function __construct(OptimizerChain $optimizer, Filesystem $filesystem)
     {
         parent::__construct();
         $this->optimizer = $optimizer;
@@ -43,7 +43,7 @@ class OptimizeImages extends Command
     public function handle()
     {
         foreach ($this->filesystem->allFiles(public_path('images/projects/resized')) as $image) {
-            $this->optimizer->optimizeImage($image);
+            $this->optimizer->optimize($image);
         }
     }
 }
