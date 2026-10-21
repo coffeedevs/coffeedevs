@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class TurnstileTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
         config(['database.default' => 'sqlite', 'database.connections.sqlite.database' => ':memory:']);
         require_once database_path('migrations/2026_09_23_000000_create_turnstile_tokens_table.php');
-        (new CreateTurnstileTokensTable())->up();
+        if (!\Illuminate\Support\Facades\Schema::hasTable('turnstile_tokens')) (new CreateTurnstileTokensTable())->up();
     }
 
     public function test_it_accepts_a_successful_response_with_the_expected_action()

@@ -2,17 +2,17 @@
 
 namespace App\Services;
 
-use Approached\LaravelImageOptimizer\ImageOptimizer;
+use Spatie\ImageOptimizer\OptimizerChain;
 use Illuminate\Support\Facades\File;
-use ImageOptimizer\Exception\Exception;
-use Intervention\Image\Facades\Image;
+use Throwable;
+use Intervention\Image\Laravel\Facades\Image;
 use Intervention\Image\Image as Intervention;
 
 class ImageService
 {
-    protected $path, $resizedPath, $intervention, $optimizer;
+    protected $path, $resizedPath, $optimizer;
 
-    public function __construct(Intervention $intervention, ImageOptimizer $imageOptimizer)
+    public function __construct(OptimizerChain $imageOptimizer)
     {
         $this->path = public_path() . '/images/projects/';
         $this->resizedPath = public_path() . '/images/projects/resized/';
@@ -23,13 +23,12 @@ class ImageService
         if (!file_exists($this->resizedPath)) {
             File::makeDirectory($this->resizedPath, $mode = 0777, true, true);
         }
-        $this->intervention = $intervention;
         $this->optimizer = $imageOptimizer;
     }
 
     private function makeMediumQualityImage($fileName)
     {
-        return Image::make($this->path . $fileName)->fit(400, 300)->save($this->resizedPath . $fileName);
+        return Image::decode($this->path . $fileName)->cover(400, 300)->save($this->resizedPath . $fileName);
     }
 
     public function saveMainPicture($file)
@@ -40,12 +39,12 @@ class ImageService
 
         File::copy($file, $this->path . $fileName);
         try {
-            $this->optimizer->optimizeImage($this->path . $fileName);
-        } catch (Exception $ex) {
+            $this->optimizer->optimize($this->path . $fileName);
+        } catch (Throwable $ex) {
 
         }
 
-        self::makeMediumQualityImage($fileName);
+         $this->makeMediumQualityImage($fileName);
 
         return $fileName;
     }

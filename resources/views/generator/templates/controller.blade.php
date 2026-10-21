@@ -6,7 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\{{ $json->model }};
 
-class {{ str_plural($json->model) }}Controller extends Controller
+class {{ \Illuminate\Support\Str::plural($json->model) }}Controller extends Controller
 {
     /**
      * Display a listing of the resource.

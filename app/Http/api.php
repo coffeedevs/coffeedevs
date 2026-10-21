@@ -8,6 +8,6 @@ Route::any('redirect-ipn',function(\Illuminate\Http\Request $request){
             'query' => $request->all()
         ]);
     }
-    catch(Exception $exception){}
+    catch(Throwable $exception){}
     return new \Illuminate\Http\Response('',200);
 });

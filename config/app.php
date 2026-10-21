@@ -138,6 +138,7 @@ return [
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
@@ -162,9 +163,6 @@ return [
 
         //Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         //Barryvdh\Debugbar\ServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        Approached\LaravelImageOptimizer\ServiceProvider::class,
-        willvincent\Feeds\FeedsServiceProvider::class,
     ],
 
     /*
@@ -210,8 +208,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Image' => Intervention\Image\Facades\Image::class,
-        'Feeds'    => willvincent\Feeds\Facades\FeedsFacade::class,
+        'Image' => Intervention\Image\Laravel\Facades\Image::class,
     ],
 
 ];

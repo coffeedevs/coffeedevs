@@ -21,7 +21,7 @@ class ContactTest extends TestCase
 
     protected $mailer;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -80,7 +80,7 @@ class ContactTest extends TestCase
 
         $this->json('POST', '/contact', $this->form + ['cf-turnstile-response' => 'token'])
             ->assertStatus(422)
-            ->assertJsonStructure(['cf-turnstile-response']);
+            ->assertJsonValidationErrors(['cf-turnstile-response']);
 
         $this->assertSame(0, $this->mailer->sent);
     }
@@ -89,7 +89,7 @@ class ContactTest extends TestCase
     {
         $this->json('POST', '/contact', $this->form)
             ->assertStatus(422)
-            ->assertJsonStructure(['cf-turnstile-response']);
+            ->assertJsonValidationErrors(['cf-turnstile-response']);
 
         $this->assertSame(0, $this->turnstile->calls);
         $this->assertSame(0, $this->mailer->sent);

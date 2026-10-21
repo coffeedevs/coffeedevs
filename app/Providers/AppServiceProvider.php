@@ -39,6 +39,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->singleton(\Spatie\ImageOptimizer\OptimizerChain::class, function () {
+            return \Spatie\ImageOptimizer\OptimizerChainFactory::create();
+        });
         $this->app->singleton(Turnstile::class, function ($app) {
             return new Turnstile(
                 new Client(),

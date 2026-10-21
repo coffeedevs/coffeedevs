@@ -6,7 +6,7 @@
                 <a href="{{ $post->get_permalink() }}">
                     <div class="col-md-4 premium-course">
                         <div class="premium-card">
-                            <div style="height:180px; width:100%; background: url({{ (new Symfony\Component\DomCrawler\Crawler($post->get_content()))->filter('img')->eq(0)->attr('src')  }}); background-size:cover;"></div>
+                            <div style="height:180px; width:100%; background: url({{ (new Symfony\Component\DomCrawler\Crawler($post->get_content()))->filter('img')->eq(0)->attr('src', '')  }}); background-size:cover;"></div>
                             <div class="premium-info">
                                 <header>
                                     <h3>{{ $post->get_title() }}</h3>

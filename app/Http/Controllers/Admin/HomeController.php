@@ -30,7 +30,7 @@ class HomeController extends Controller
             $user->password = Hash::make($request->password);
             $user->save();
             Session::flash('success', 'Se ha cambiado la contraseña correctamente');
-        } catch (\Exception $ex) {
+        } catch (\Throwable $ex) {
             Session::flash('error', 'Hubo un error al cambiar la contraseña');
         }
         return back();
